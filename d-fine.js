@@ -29,13 +29,17 @@ export const onFrom = ({ from, self }) => {
         self.as = ceName;
     self.etc = upShadowSearch(self, from);
 };
-export const onFPS = ({ fps, self }) => {
+export const onFPS = ({ fps, as, self }) => {
+    if (customElements.get(as))
+        return;
     self.etc = self.previousElementSibling;
 };
-export const onFPSExt = ({ fromPreviousSibling, self }) => {
+export const onFPSExt = ({ fromPreviousSibling, as, self }) => {
+    if (customElements.get(as))
+        return;
     self.etc = self.previousElementSibling;
 };
-export const doDef = ({ as, etc, self }) => {
+export const doDef = ({ etc, self }) => {
     def(etc, self);
 };
 export const propActions = [onFrom, onFPS, onFPSExt, doDef];

@@ -32,15 +32,17 @@ export const onFrom = ({from, self} : D) => {
     self.etc = upShadowSearch(self, from!);
 }
 
-export const onFPS = ({fps, self}: D) => {
+export const onFPS = ({fps, as, self}: D) => {
+    if(customElements.get(as)) return;
     self.etc = self.previousElementSibling;
 }
 
-export const onFPSExt = ({fromPreviousSibling, self}: D) => {
+export const onFPSExt = ({fromPreviousSibling, as, self}: D) => {
+    if(customElements.get(as)) return;
     self.etc = self.previousElementSibling;
 }
 
-export const doDef = ({as, etc, self}: D) => {
+export const doDef = ({etc, self}: D) => {
     def(etc!, self);
 }
 
