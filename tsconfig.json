@@ -10,7 +10,7 @@
 	},
 	"files":[
 		"def.ts",
-		
+		"d-fine.ts"
 	],
 	"exclude":[
 		"node_modules"

@@ -14,8 +14,8 @@ export function def(templ, options) {
         reflect: true
     };
     const defaults = {};
-    if (options.stringProps !== undefined) {
-        for (const stringProp of options.stringProps) {
+    if (options.strProps !== undefined) {
+        for (const stringProp of options.strProps) {
             const split = stringProp.split('=').map(s => s.trim());
             const prop = {
                 ...baseProp,
@@ -105,4 +105,5 @@ export function def(templ, options) {
     }
     newClass.is = options.as;
     newClass.observedAttributes = [...slicedPropDefs.boolNames, ...slicedPropDefs.numNames, ...slicedPropDefs.strNames];
+    xc.define(newClass);
 }

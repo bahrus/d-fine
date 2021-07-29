@@ -16,8 +16,8 @@ export function def(templ: HTMLTemplateElement | Element, options: defOptions){
         reflect: true
     };
     const defaults: any = {};
-    if(options.stringProps !== undefined){
-        for(const stringProp of options.stringProps){
+    if(options.strProps !== undefined){
+        for(const stringProp of options.strProps){
             const split = stringProp.split('=').map(s => s.trim());
             const prop: PropDef = {
                 ...baseProp,
@@ -109,4 +109,5 @@ export function def(templ: HTMLTemplateElement | Element, options: defOptions){
         */
         tpl: TemplateInstance | undefined;
     }
+    xc.define(newClass);
 }

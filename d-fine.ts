@@ -26,67 +26,68 @@ export interface DFine extends DFineProps{}
 type D = DFine;
 
 export const onFrom = ({from, self} : D) => {
-    const ceName = self.as || getCEName(from!.split('/').pop());
+    const ceName = self.as || getCEName(from!.split('/').pop()!);
     if(ceName === undefined || customElements.get(ceName)) return;
     if(self.as === undefined) self.as = ceName;
-    self.etc = upShadowSearch(self, from!)
+    self.etc = upShadowSearch(self, from!);
 }
 
 export const onFPS = ({fps, self}: D) => {
     self.etc = self.previousElementSibling;
 }
 
-export const doDef = ({as, etc, self}: D) => {
-    let templateToClone = etc;
-    if(!(templateToClone instanceof HTMLTemplateElement)){
-        templateToClone = document.createElement('template');
-        templateToClone.innerHTML = etc!.innerHTML;
-    }
-    def(templateToClone as HTMLTemplateElement, self);
+export const onFPSExt = ({fromPreviousSibling, self}: D) => {
+    self.etc = self.previousElementSibling;
 }
 
-export const propActions = [onFrom, onFPS, doDef] as PropAction[];
+export const doDef = ({as, etc, self}: D) => {
+    def(etc!, self);
+}
+
+export const propActions = [onFrom, onFPS, onFPSExt, doDef] as PropAction[];
 
 export const baseProp: PropDef = {
     dry: true,
     async: true,
-}
+};
 
 export const boolProp0: PropDef = {
     ...baseProp,
     type: Boolean,
-}
+};
+
+export const boolProp1: PropDef = {
+    ...boolProp0,
+    stopReactionsIfFalsy: true,
+};
 
 export const strProp1: PropDef = {
     ...baseProp,
     type: String,
     stopReactionsIfFalsy: true,
-}
+};
 
 export const objProp0: PropDef = {
     ...baseProp,
     type:Object,
-}
+};
 
 export const objProp1: PropDef = {
     ...objProp0,
     stopReactionsIfFalsy: true,
-}
+};
 
 export const objProp2: PropDef = {
     ...objProp0,
     parse: true
-}
+};
 
 
 const propDefMap: PropDefMap<D> = {
     from: strProp1,
-    fps: strProp1,
+    fps: boolProp1,
     as: strProp1,
-    fromPrevSibling: {
-        ...strProp1,
-        echoTo: 'fps'
-    },
+    fromPreviousSibling: boolProp1,
     etc: objProp1,
     strProps: objProp2,
     numProps: objProp2,

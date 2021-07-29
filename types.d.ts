@@ -23,7 +23,7 @@ export interface DFineProps extends HTMLElement, defOptions{
     /**
     * Get template from previous sibling.
     */
-    fromPrevSibling: boolean | undefined;
+    fromPreviousSibling: boolean | undefined;
 
     /**
      * Shortcut for fromPrevSibling
@@ -34,6 +34,6 @@ export interface DFineProps extends HTMLElement, defOptions{
      * @private
      * element to clone
      */
-    etc: Element;
+    etc: Element | undefined | null;
 
 }
