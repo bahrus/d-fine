@@ -12,6 +12,7 @@ export function def(templ, options) {
         const targets = templateToClone.content.querySelectorAll(`[${bindTo}]`);
         for (const target of targets) {
             target.innerHTML = `{{${target.getAttribute(bindTo)}}}`;
+            target.removeAttribute(bindTo);
         }
     }
     const propDefMap = {};

@@ -15,6 +15,9 @@ The template for the custom element can come from live HTML.  For example:
 ...generates:
 
 ```html
+<div>
+    <div>Hello, <span>world</span></div>
+</div>
 <hello-world place=Mars>
     #shadow
     Hello, Mars
@@ -23,8 +26,8 @@ The template for the custom element can come from live HTML.  For example:
 
 Shadow DOM can be circumvented by adding attribute "noshadow."
 
-d-fine is part of the [p-et-alia](https://github.com/bahrus/p-et-alia) framework.  One of the goals of that framework is to allow the developer to choose verbose, readable syntax, such as we we've seen above, or more compact markup for more advanced teams / repeated use.  
-Default values can also be specified:
+d-fine is part of the [p-et-alia](https://github.com/bahrus/p-et-alia) framework.  One of the goals of that framework is to allow the d-veloper to choose verbose, readable syntax, such as we we've seen above, or more compact markup for more advanced teams / repeated use.  
+D-fault values can also be specified:
 
 ```html
 <div>
@@ -32,5 +35,22 @@ Default values can also be specified:
 </div>
 <d-fine fps as=hello-world sp='["place=Venus"]' bt=data-target></d-fine>
 <hello-world place=Mars></hello-world>
-<hrllo-world></hello-world>
+<hello-world></hello-world>
+```
+
+
+...generates:
+
+```html
+<div>
+    <div>Hello, <span>world</span></div>
+</div>
+<hello-world place=Mars>
+    #shadow
+    Hello, Mars
+</hello-world>
+<hello-world place=Venus>
+    #shadow
+    Hello, Venus
+</hello-world>
 ```

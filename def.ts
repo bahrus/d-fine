@@ -13,7 +13,8 @@ export function def(templ: HTMLTemplateElement | Element, options: defOptions){
     if(bindTo !== undefined){
         const targets = templateToClone.content.querySelectorAll(`[${bindTo}]`);
         for(const target of targets){
-            target.innerHTML = `{{${target.getAttribute(bindTo)}}}`
+            target.innerHTML = `{{${target.getAttribute(bindTo)}}}`;
+            target.removeAttribute(bindTo);
         }
     }
     const propDefMap: PropDefMap<any> = {};
