@@ -1,0 +1,647 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "d-fine.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Define Web Component Declaratively",
+          "name": "DFine",
+          "members": [
+            {
+              "kind": "method",
+              "name": "onPropChange",
+              "parameters": [
+                {
+                  "name": "n"
+                },
+                {
+                  "name": "prop"
+                },
+                {
+                  "name": "nv"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "self",
+              "default": "this"
+            },
+            {
+              "kind": "field",
+              "name": "propActions",
+              "default": "[onFrom, onFPS, onFPSExt, doDef]",
+              "type": {
+                "text": "array"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "reactor",
+              "default": "new xc.Rx(this)"
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "tagName": "d-fine",
+          "customElement": true
+        },
+        {
+          "kind": "function",
+          "name": "onFrom",
+          "parameters": [
+            {
+              "name": "{ from, self }"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "onFPS",
+          "parameters": [
+            {
+              "name": "{ fps, as, self }"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "onFPSExt",
+          "parameters": [
+            {
+              "name": "{ fromPreviousSibling, as, self }"
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "doDef",
+          "parameters": [
+            {
+              "name": "{ etc, self }"
+            }
+          ]
+        },
+        {
+          "kind": "variable",
+          "name": "propActions",
+          "type": {
+            "text": "array"
+          },
+          "default": "[onFrom, onFPS, onFPSExt, doDef]"
+        },
+        {
+          "kind": "variable",
+          "name": "baseProp",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n    dry: true,\n    async: true,\n}"
+        },
+        {
+          "kind": "variable",
+          "name": "boolProp0",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n    ...baseProp,\n    type: Boolean,\n}"
+        },
+        {
+          "kind": "variable",
+          "name": "boolProp1",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n    ...boolProp0,\n    stopReactionsIfFalsy: true,\n}"
+        },
+        {
+          "kind": "variable",
+          "name": "strProp0",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n    ...baseProp,\n    type: String,\n}"
+        },
+        {
+          "kind": "variable",
+          "name": "strProp1",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n    ...strProp0,\n    stopReactionsIfFalsy: true,\n}"
+        },
+        {
+          "kind": "variable",
+          "name": "objProp0",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n    ...baseProp,\n    type: Object,\n}"
+        },
+        {
+          "kind": "variable",
+          "name": "objProp1",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n    ...objProp0,\n    stopReactionsIfFalsy: true,\n}"
+        },
+        {
+          "kind": "variable",
+          "name": "objProp2",
+          "type": {
+            "text": "object"
+          },
+          "default": "{\n    ...objProp0,\n    parse: true\n}"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DFine",
+          "declaration": {
+            "name": "DFine",
+            "module": "d-fine.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "onFrom",
+          "declaration": {
+            "name": "onFrom",
+            "module": "d-fine.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "onFPS",
+          "declaration": {
+            "name": "onFPS",
+            "module": "d-fine.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "onFPSExt",
+          "declaration": {
+            "name": "onFPSExt",
+            "module": "d-fine.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "doDef",
+          "declaration": {
+            "name": "doDef",
+            "module": "d-fine.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "propActions",
+          "declaration": {
+            "name": "propActions",
+            "module": "d-fine.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "baseProp",
+          "declaration": {
+            "name": "baseProp",
+            "module": "d-fine.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "boolProp0",
+          "declaration": {
+            "name": "boolProp0",
+            "module": "d-fine.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "boolProp1",
+          "declaration": {
+            "name": "boolProp1",
+            "module": "d-fine.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "strProp0",
+          "declaration": {
+            "name": "strProp0",
+            "module": "d-fine.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "strProp1",
+          "declaration": {
+            "name": "strProp1",
+            "module": "d-fine.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "objProp0",
+          "declaration": {
+            "name": "objProp0",
+            "module": "d-fine.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "objProp1",
+          "declaration": {
+            "name": "objProp1",
+            "module": "d-fine.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "objProp2",
+          "declaration": {
+            "name": "objProp2",
+            "module": "d-fine.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "d-fine.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Define Web Component Declaratively",
+          "name": "DFine",
+          "members": [
+            {
+              "kind": "field",
+              "name": "is",
+              "type": {
+                "text": "string"
+              },
+              "static": true,
+              "default": "'d-fine'"
+            },
+            {
+              "kind": "field",
+              "name": "self",
+              "default": "this"
+            },
+            {
+              "kind": "field",
+              "name": "propActions",
+              "default": "[onFrom, onFPS, onFPSExt, doDef]"
+            },
+            {
+              "kind": "field",
+              "name": "reactor",
+              "type": {
+                "text": "IReactor"
+              },
+              "default": "new xc.Rx(this)"
+            },
+            {
+              "kind": "method",
+              "name": "onPropChange",
+              "parameters": [
+                {
+                  "name": "n",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "prop",
+                  "type": {
+                    "text": "PropDef"
+                  }
+                },
+                {
+                  "name": "nv",
+                  "type": {
+                    "text": "any"
+                  }
+                }
+              ]
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "tagName": "d-fine",
+          "customElement": true
+        },
+        {
+          "kind": "function",
+          "name": "onFrom",
+          "parameters": [
+            {
+              "name": "{from, self}",
+              "type": {
+                "text": "D"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "onFPS",
+          "parameters": [
+            {
+              "name": "{fps, as, self}",
+              "type": {
+                "text": "D"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "onFPSExt",
+          "parameters": [
+            {
+              "name": "{fromPreviousSibling, as, self}",
+              "type": {
+                "text": "D"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "doDef",
+          "parameters": [
+            {
+              "name": "{etc, self}",
+              "type": {
+                "text": "D"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "variable",
+          "name": "propActions",
+          "default": "[onFrom, onFPS, onFPSExt, doDef]"
+        },
+        {
+          "kind": "variable",
+          "name": "baseProp",
+          "type": {
+            "text": "PropDef"
+          },
+          "default": "{\r\n    dry: true,\r\n    async: true,\r\n}"
+        },
+        {
+          "kind": "variable",
+          "name": "boolProp0",
+          "type": {
+            "text": "PropDef"
+          },
+          "default": "{\r\n    ...baseProp,\r\n    type: Boolean,\r\n}"
+        },
+        {
+          "kind": "variable",
+          "name": "boolProp1",
+          "type": {
+            "text": "PropDef"
+          },
+          "default": "{\r\n    ...boolProp0,\r\n    stopReactionsIfFalsy: true,\r\n}"
+        },
+        {
+          "kind": "variable",
+          "name": "strProp0",
+          "type": {
+            "text": "PropDef"
+          },
+          "default": "{\r\n    ...baseProp,\r\n    type: String,\r\n}"
+        },
+        {
+          "kind": "variable",
+          "name": "strProp1",
+          "type": {
+            "text": "PropDef"
+          },
+          "default": "{\r\n    ...strProp0,\r\n    stopReactionsIfFalsy: true,\r\n}"
+        },
+        {
+          "kind": "variable",
+          "name": "objProp0",
+          "type": {
+            "text": "PropDef"
+          },
+          "default": "{\r\n    ...baseProp,\r\n    type:Object,\r\n}"
+        },
+        {
+          "kind": "variable",
+          "name": "objProp1",
+          "type": {
+            "text": "PropDef"
+          },
+          "default": "{\r\n    ...objProp0,\r\n    stopReactionsIfFalsy: true,\r\n}"
+        },
+        {
+          "kind": "variable",
+          "name": "objProp2",
+          "type": {
+            "text": "PropDef"
+          },
+          "default": "{\r\n    ...objProp0,\r\n    parse: true\r\n}"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "DFine",
+          "declaration": {
+            "name": "DFine",
+            "module": "d-fine.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "onFrom",
+          "declaration": {
+            "name": "onFrom",
+            "module": "d-fine.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "onFPS",
+          "declaration": {
+            "name": "onFPS",
+            "module": "d-fine.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "onFPSExt",
+          "declaration": {
+            "name": "onFPSExt",
+            "module": "d-fine.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "doDef",
+          "declaration": {
+            "name": "doDef",
+            "module": "d-fine.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "propActions",
+          "declaration": {
+            "name": "propActions",
+            "module": "d-fine.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "baseProp",
+          "declaration": {
+            "name": "baseProp",
+            "module": "d-fine.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "boolProp0",
+          "declaration": {
+            "name": "boolProp0",
+            "module": "d-fine.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "boolProp1",
+          "declaration": {
+            "name": "boolProp1",
+            "module": "d-fine.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "strProp0",
+          "declaration": {
+            "name": "strProp0",
+            "module": "d-fine.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "strProp1",
+          "declaration": {
+            "name": "strProp1",
+            "module": "d-fine.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "objProp0",
+          "declaration": {
+            "name": "objProp0",
+            "module": "d-fine.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "objProp1",
+          "declaration": {
+            "name": "objProp1",
+            "module": "d-fine.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "objProp2",
+          "declaration": {
+            "name": "objProp2",
+            "module": "d-fine.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "def.js",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "def",
+          "parameters": [
+            {
+              "name": "templ"
+            },
+            {
+              "name": "options"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "def",
+          "declaration": {
+            "name": "def",
+            "module": "def.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "def.ts",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "def",
+          "parameters": [
+            {
+              "name": "templ",
+              "type": {
+                "text": "HTMLTemplateElement | Element"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "text": "defOptions"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "def",
+          "declaration": {
+            "name": "def",
+            "module": "def.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "types.d.ts",
+      "declarations": [],
+      "exports": []
+    }
+  ]
+}

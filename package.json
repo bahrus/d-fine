@@ -4,6 +4,12 @@
   "description": "",
   "main": "d-fine.js",
   "module": "d-fine.js",
+  "keywords": [
+    "web-components",
+    "custom-elements",
+    "DRY",
+    "declarative-web-components"
+  ],
   "dependencies": {
     "templ-arts": "0.0.7",
     "trans-render": "0.0.291",
@@ -12,21 +18,33 @@
   "devDependencies": {
     "xtal-test": "0.0.51",
     "@skypack/package-check": "0.2.2",
-    "@custom-elements-manifest/analyzer": "0.4.12"
+    "@custom-elements-manifest/analyzer": "0.4.14"
   },
   "scripts": {
     "serve": "node node_modules/xtal-test/serve.js",
     "package-check": "package-check",
     "doc": "custom-elements-manifest analyze"
   },
+  "exports": {
+    ".": "./d-fine.js",
+    "./def.js": "./def.js",
+    "./d-fine.js": "./d-fine.js"
+  },
+  "files": [
+    "d*.*",
+    "types.d.ts",
+    "custom-elements.json"
+  ],
+  "types": "types.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bahrus/d-fine.git"
   },
-  "author": "",
+  "author": "anderson.bruce.b@gmail.com",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bahrus/d-fine/issues"
   },
-  "homepage": "https://github.com/bahrus/d-fine#readme"
+  "homepage": "https://github.com/bahrus/d-fine#readme",
+  "customElements": "custom-elements.json"
 }
