@@ -73,7 +73,7 @@ export function def(templ, options) {
         constructor() {
             super(...arguments);
             this.self = this;
-            this.propActions = options.propActions || [];
+            this.propActions = options.propActionsForDef || [];
             this.reactor = new xc.Rx(this);
         }
         attributeChangedCallback(name, oldValue, newValue) {

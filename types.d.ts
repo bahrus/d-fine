@@ -8,7 +8,7 @@ export interface defOptions {
     boolProps?: string[],
     numProps?: string[],
     objProps?: string[],
-    propActions?: PropAction[],
+    propActionsForDef?: PropAction[],
     styleTemplate?: HTMLTemplateElement,
 }
 
@@ -35,4 +35,5 @@ export interface DFineProps extends HTMLElement, defOptions{
      * element to clone
      */
     etc: Element;
+
 }

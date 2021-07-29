@@ -75,7 +75,7 @@ export function def(templ: HTMLTemplateElement | Element, options: defOptions){
         static is = options.as;
         static observedAttributes = [...slicedPropDefs.boolNames, ...slicedPropDefs.numNames, ...slicedPropDefs.strNames];
         self = this;
-        propActions = options.propActions || []  as PropAction[];
+        propActions = options.propActionsForDef || []  as PropAction[];
         reactor: IReactor = new xc.Rx(this);
         attributeChangedCallback(name: string, oldValue: string, newValue: string){
             passAttrToProp(this, slicedPropDefs, name, oldValue, newValue);
