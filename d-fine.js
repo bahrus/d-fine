@@ -80,7 +80,7 @@ const propDefMap = {
     fps: boolProp1,
     as: strProp1,
     fromPreviousSibling: boolProp1,
-    etc: objProp1,
+    etc: { ...objProp1, transience: 1000 },
     sp: objProp2,
     strProps: { ...objProp2, echoTo: 'sp' },
     np: objProp2,
