@@ -4,14 +4,17 @@ export interface defOptions {
     as: string,
     /** No shadow DOM */
     noshadow?: boolean,
+    sp?: string[],
     strProps?: string[],
+    bp?: string[],
     boolProps?: string[],
+    np?: string[],
     numProps?: string[],
+    op?: string[],
     objProps?: string[],
     propActionsForDef?: PropAction[],
     styleTemplate?: HTMLTemplateElement,
     bindTo: string | undefined;
-
     bt: string | undefined;
 }
 

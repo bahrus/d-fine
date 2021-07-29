@@ -81,18 +81,19 @@ const propDefMap = {
     as: strProp1,
     fromPreviousSibling: boolProp1,
     etc: objProp1,
-    strProps: objProp2,
-    numProps: objProp2,
-    objProps: objProp2,
-    boolProps: objProp2,
+    sp: objProp2,
+    strProps: { ...objProp2, echoTo: 'sp' },
+    np: objProp2,
+    numProps: { ...objProp2, echoTo: 'np' },
+    op: objProp2,
+    objProps: { ...objProp2, echoTo: 'op' },
+    bp: objProp2,
+    boolProps: { ...objProp2, echoTo: 'bp' },
     propActionsForDef: objProp0,
     noshadow: boolProp0,
     styleTemplate: objProp0,
     bt: strProp0,
-    bindTo: {
-        ...strProp0,
-        'echoTo': 'bt'
-    }
+    bindTo: { ...strProp0, 'echoTo': 'bt' }
 };
 const slicedPropDefs = xc.getSlicedPropDefs(propDefMap);
 xc.letThereBeProps(DFine, slicedPropDefs, 'onPropChange');

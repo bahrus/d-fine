@@ -21,8 +21,9 @@ export function def(templ, options) {
         reflect: true
     };
     const defaults = {};
-    if (options.strProps !== undefined) {
-        for (const stringProp of options.strProps) {
+    const strProps = options.sp || options.strProps;
+    if (strProps !== undefined) {
+        for (const stringProp of strProps) {
             const split = stringProp.split('=').map(s => s.trim());
             const prop = {
                 ...baseProp,
@@ -34,8 +35,9 @@ export function def(templ, options) {
             }
         }
     }
-    if (options.boolProps !== undefined) {
-        for (const boolProp of options.boolProps) {
+    const boolProps = options.bp || options.boolProps;
+    if (boolProps !== undefined) {
+        for (const boolProp of boolProps) {
             const split = boolProp.split('=').map(s => s.trim());
             const prop = {
                 ...baseProp,
@@ -47,8 +49,9 @@ export function def(templ, options) {
             }
         }
     }
-    if (options.numProps !== undefined) {
-        for (const numProp of options.numProps) {
+    const numProps = options.np || options.numProps;
+    if (numProps !== undefined) {
+        for (const numProp of numProps) {
             const split = numProp.split('=').map(s => s.trim());
             const prop = {
                 ...baseProp,
@@ -61,8 +64,9 @@ export function def(templ, options) {
             }
         }
     }
-    if (options.objProps !== undefined) {
-        for (const objProp of options.objProps) {
+    const objProps = options.op || options.objProps;
+    if (objProps !== undefined) {
+        for (const objProp of objProps) {
             const split = objProp.split('=').map(s => s.trim());
             const prop = {
                 ...baseProp,
