@@ -8,9 +8,11 @@
 		"strict": true,
 		"watch": true
 	},
+	"files":[
+		"def.ts",
+		
+	],
 	"exclude":[
-		"build",
-		"bower_components",
 		"node_modules"
 	]
 

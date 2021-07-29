@@ -3,8 +3,20 @@
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
+  "dependencies": {
+    "templ-arts": "0.0.7",
+    "trans-render": "0.0.291",
+    "xtal-element": "0.0.418"
+  },
+  "devDependencies": {
+    "xtal-test": "0.0.51",
+    "@skypack/package-check": "0.2.2",
+    "@custom-elements-manifest/analyzer": "0.4.12"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "node node_modules/xtal-test/serve.js",
+    "package-check": "package-check",
+    "doc": "custom-elements-manifest analyze"
   },
   "repository": {
     "type": "git",
