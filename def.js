@@ -7,6 +7,13 @@ export function def(templ, options) {
         templateToClone = document.createElement('template');
         templateToClone.innerHTML = templ.innerHTML;
     }
+    const bindTo = options.bt || options.bindTo;
+    if (bindTo !== undefined) {
+        const targets = templateToClone.content.querySelectorAll(`[${bindTo}]`);
+        for (const target of targets) {
+            target.innerHTML = `{{${target.getAttribute(bindTo)}}}`;
+        }
+    }
     const propDefMap = {};
     const baseProp = {
         async: true,

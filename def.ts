@@ -7,7 +7,14 @@ export function def(templ: HTMLTemplateElement | Element, options: defOptions){
     let templateToClone = templ as HTMLTemplateElement;
     if(!(templateToClone instanceof HTMLTemplateElement)){
         templateToClone = document.createElement('template');
-        templateToClone.innerHTML = templ.innerHTML;
+        templateToClone.innerHTML = templ.innerHTML;        
+    }
+    const bindTo = options.bt || options.bindTo;
+    if(bindTo !== undefined){
+        const targets = templateToClone.content.querySelectorAll(`[${bindTo}]`);
+        for(const target of targets){
+            target.innerHTML = `{{${target.getAttribute(bindTo)}}}`
+        }
     }
     const propDefMap: PropDefMap<any> = {};
     const baseProp: PropDef = {
