@@ -116,7 +116,7 @@ The web component d-fine is a thin wrapper around the api d-fined in d-fine/def.
     </tbody>
 </table>
 
-## Template Dependency Injection
+## Template D-pendency Injection
 
 Instead of specifying that the template should come from the pr-vious sibling, the property/attribute "from" allows us to specify a host property name or id within the shadowDOM realm where the template is defined.  The host property name takes precedence.
 
