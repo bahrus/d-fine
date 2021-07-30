@@ -13,5 +13,18 @@
         </template>
     </hello-world>
     <d-fine fps as=hello-world sp='["place=Venus"]' bt=data-target></d-fine>
+    <hello-world></hello-world>
+    <script type=importmap>
+        {
+            "imports":{
+                "xtal-element/": "../node_modules/xtal-element/",
+                "trans-render/": "../node_modules/trans-render/",
+                "templ-arts/": "../node_modules/templ-arts/"
+            }
+        }
+    </script>
+    <script type=module>
+        import '../d-fine.js';
+    </script>
 </body>
 </html>

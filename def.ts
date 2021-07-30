@@ -7,7 +7,12 @@ export function def(templ: HTMLTemplateElement | Element, options: defOptions){
     let templateToClone = templ as HTMLTemplateElement;
     if(!(templateToClone instanceof HTMLTemplateElement)){
         templateToClone = document.createElement('template');
-        templateToClone.innerHTML = templ.innerHTML;        
+        if(templ.localName === options.as && templ.shadowRoot !== null){
+            templateToClone.innerHTML = templ.shadowRoot.innerHTML;
+        }else{
+            templateToClone.innerHTML = templ.innerHTML;
+        }
+                
     }
     const bindTo = options.bt || options.bindTo;
     if(bindTo !== undefined){
