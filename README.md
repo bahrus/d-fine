@@ -8,6 +8,8 @@
 
 d-fine provides a quick way of d-fining a mostly d-clarative custom element.
 
+## [Demo](https://codepen.io/bahrus/pen/poPVOJz)
+
 ## Hello, {{place}}
 
 The template for the custom element can come from live HTML.  For example:
