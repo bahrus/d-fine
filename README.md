@@ -28,15 +28,17 @@ The template for the custom element can come from live HTML.  For example:
 </div>
 <hello-world place=Mars>
     #shadow
-    Hello, Mars
+    <div>
+        <div>Hello, <span>Mars</span></div>
+    </div>
 </hello-world>
 ```
 
 Shadow DOM can be circumvented by adding attribute "noshadow."
 
-d-fine is part of the [p-et-alia](https://github.com/bahrus/p-et-alia) framework.  One of the goals of that framework is to allow the d-veloper to choose verbose, r-adable syntax, such as w-'ve s--n above, or more compact markup for more advanced teams / rep-ated use.
+d-fine is part of the [p-et-alia](https://github.com/bahrus/p-et-alia) framework.  One of the goals of that framework is to allow the d-veloper to choose verbose, readable syntax, such as w-'ve s--n above, or more compact markup for more advanced teams / r-peated use.
 
-The -xample below does the same thing, but with more compact notation.  D-fault values can also be specified, as s--n with place=Venus:
+The example below does the same thing, but with more compact notation.  D-fault values can also be specified, as s--n with place=Venus:
 
 ```html
 <div>
@@ -56,15 +58,19 @@ The -xample below does the same thing, but with more compact notation.  D-fault 
 </div>
 <hello-world place=Mars>
     #shadow
-    Hello, Mars
+    <div>
+        <div>Hello, <span>Mars</span></div>
+    </div>
 </hello-world>
 <hello-world place=Venus>
     #shadow
-    Hello, Venus
+    <div>
+        <div>Hello, <span>Venus</span></div>
+    </div>
 </hello-world>
 ```
 
-The previous sibling can be a template to start with:
+The pr-vious sibling can be a template to start with:
 
 ```html
 <template>
@@ -82,7 +88,7 @@ The web component d-fine is a thin wrapper around the api d-fined in d-fine/def.
 <table>
     <thead>
         <tr>
-            <th>Abbreviated Attribute Name</th>
+            <th>Abbr-viated Attribute Name</th>
             <th>Full Attribute Name</th>
         </tr>
     </thead>
@@ -112,9 +118,9 @@ The web component d-fine is a thin wrapper around the api d-fined in d-fine/def.
 
 ## Template Dependency Injection
 
-Instead of specifying that the template should come from the previous sibling, the property/attribute "from" allows us to specify a host property name or id within the shadowDOM realm where the template is defined.  The host property name takes precedence.
+Instead of specifying that the template should come from the pr-vious sibling, the property/attribute "from" allows us to specify a host property name or id within the shadowDOM realm where the template is defined.  The host property name takes precedence.
 
-A web component can thus define a default template within the ShadowDOM markup, but allow extending web components to define alternative templates, by defining properties with the same name, and assigning a template to those properties.
+A web component can thus define a d-fault template within the ShadowDOM markup, but allow extending web components to d-fine alternative templates, by d-fining properties with the same name, and assigning a template to those properties.
 
 ## Installation
 
