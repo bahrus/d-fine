@@ -81,6 +81,20 @@ The pr-vious sibling can be a template to start with:
 <hello-world></hello-world>
 ```
 
+## Pr-rendered web components that use d-clarative Shadow DOM
+
+This syntax always works:
+
+```html
+<hello-world>
+    <template shadowroot=open>
+        <div>Hello, <span data-target=place>world</span></div>
+    </template>
+</hello-world>
+<d-fine fps as=hello-world sp='["place=Venus"]' bt=data-target></d-fine>
+<hello-world place=Mars></hello-world>
+```
+
 The web component d-fine is a thin wrapper around the api d-fined in d-fine/def.js.
 
 ## Abbreviations
