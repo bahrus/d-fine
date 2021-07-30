@@ -7,13 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <div>Hello, <span data-target=place>world</span></div>
-    </div>
-    <d-fine fps as=hello-world str-props='["place'></d-fine>
-    <hello-world></hello-world>
-    <script type=module>
-        import 'https://cdn.skypack.dev/d-fine'
+    <hello-world>
+        <template shadowroot=open>
+          <div>Hello, <span data-target=place>world</span></div>
+        </template>
+      </hello-world>
+    <d-fine fps as=hello-world sp='["place=Venus"]' bt=data-target></d-fine>
+    <hello-world place=Mars></hello-world>
+    
+    <script type=module crossorigin="">
+    import 'https://cdn.skypack.dev/d-fine'
     </script>
 </body>
 </html>
