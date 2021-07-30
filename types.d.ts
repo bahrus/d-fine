@@ -14,8 +14,8 @@ export interface defOptions {
     objProps?: string[],
     propActionsForDef?: PropAction[],
     styleTemplate?: HTMLTemplateElement,
-    bindTo: string | undefined;
-    bt: string | undefined;
+    bindTo?: string | undefined;
+    bt?: string | undefined;
 }
 
 export interface DFineProps extends HTMLElement, defOptions{

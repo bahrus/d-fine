@@ -1,5 +1,9 @@
 # d-fine
 
+<a href="https://nodei.co/npm/d-fine/"><img src="https://nodei.co/npm/d-fine.png"></a>
+
+<img src="https://badgen.net/bundlephobia/minzip/d-fine">
+
 d-fine provides a quick way of d-fining a mostly d-clarative custom element.
 
 The template for the custom element can come from live HTML.  For example:
@@ -26,8 +30,9 @@ The template for the custom element can come from live HTML.  For example:
 
 Shadow DOM can be circumvented by adding attribute "noshadow."
 
-d-fine is part of the [p-et-alia](https://github.com/bahrus/p-et-alia) framework.  One of the goals of that framework is to allow the d-veloper to choose verbose, readable syntax, such as we we've seen above, or more compact markup for more advanced teams / repeated use.  
-D-fault values can also be specified:
+d-fine is part of the [p-et-alia](https://github.com/bahrus/p-et-alia) framework.  One of the goals of that framework is to allow the d-veloper to choose verbose, readable syntax, such as we we've seen above, or more compact markup for more advanced teams / repeated use.
+
+The example below does the same thing, but with more compact notation.  D-fault values can also be specified, as see with place=Venus:
 
 ```html
 <div>
@@ -54,3 +59,17 @@ D-fault values can also be specified:
     Hello, Venus
 </hello-world>
 ```
+
+The previous sibling can be a template to start with:
+
+```html
+<template>
+    <div>Hello, {{place}}</div>
+</template>
+<d-fine fps as=hello-world sp='["place=Venus"]'></d-fine>
+<hello-world place=Mars></hello-world>
+<hello-world></hello-world>
+```
+
+The web component d-fine is a thin wrapper around the api d-fine/def.js.
+
