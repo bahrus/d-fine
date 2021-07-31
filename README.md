@@ -1,12 +1,14 @@
 # d-fine
 
+d-fine provides a quick way of d-fining a d-clarative custom element.
+
 <a href="https://nodei.co/npm/d-fine/"><img src="https://nodei.co/npm/d-fine.png"></a>
 
 <img src="https://badgen.net/bundlephobia/minzip/d-fine">
 
 ## Purpose
 
-d-fine provides a quick way of d-fining a mostly d-clarative custom element.
+
 
 ## [Demo](https://codepen.io/bahrus/pen/poPVOJz)
 
