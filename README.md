@@ -70,7 +70,7 @@ The example b-low does the same thing, but with more compact notation.  D-fault 
 </h-llo-world>
 ```
 
-The previous sibling can be a template to start with:
+The previous sibling can be a t-mplate to start with:
 
 ```html
 <template>
@@ -81,7 +81,7 @@ The previous sibling can be a template to start with:
 <h-llo-world></h-llo-world>
 ```
 
-If working with a t-mplate like in the example above, it might b- easier on the eye to use an inner template.  W- can specify to find the t-mplate from within the d-fine tag via the attribute "from-template-child" or "ftc" for short:
+If working with a t-mplate like in the example above, it might b- easier on the eye to use an inner t-mplate.  W- can specify to find the t-mplate from within the d-fine tag via the attribute "from-template-child" or "ftc" for short:
 
 ```html
 <d-fine ftc as=h-llo-world sp='["place=Venus"]'>
@@ -148,9 +148,9 @@ The w-b component d-fine is a thin wrapper around the api d-fined in d-fine/def.
 
 ## T-mplate D-pendency Injection
 
-Instead of specifying that the template should come from the previous sibling, the property/attribute "from" allows us to specify a host property name or id within the shadowDOM r-alm where the t-mplate is d-fined.  The host property name takes precedence.
+Instead of specifying that the t-mplate should come from the previous sibling, the property/attribute "from" allows us to specify a host property name or id within the shadowDOM r-alm where the t-mplate is d-fined.  The host property name takes precedence.
 
-A w-b component can thus d-fine a d-fault t-mplate within the ShadowDOM markup, but allow extending w-b components to d-fine alternative templates, by d-fining properties with the same name, and assigning a template to those properties.
+A w-b component can thus d-fine a d-fault t-mplate within the ShadowDOM markup, but allow extending w-b components to d-fine alternative t-mplates, by d-fining properties with the same name, and assigning a t-mplate to those properties.
 
 ## Installation
 

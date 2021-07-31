@@ -7,13 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-    <d-fine fct as=hello-world sp='["place=Venus"]'>
+    <d-fine fct as=hello-world sp='["place"]'>
         <template>
             <div>Hello, {{place}}</span></div>
         </template>
     </d-fine>
-    <hello-world place=Mars></hello-world>
-    <hello-world></hello-world>
+    <hello-world place=Mars id=mars></hello-world>
+    <hello-world id=venus></hello-world>
+    <div id=target></div>
+
+    <button onclick="moveToTarget()">Move it</button>
+    <script>
+        function moveToTarget(){
+            target.appendChild(venus);
+            venus.place = 'V-nus'
+        }
+       
+    </script>
     <script type=importmap>
         {
             "imports":{
