@@ -146,11 +146,30 @@ The w-b component d-fine is a thin wrapper around the api d-fined in d-fine/def.
     </tbody>
 </table>
 
-## T-mplate D-pendency Injection
+## T-mplate D-pendency Injection, or Inversion of Views
 
 Instead of specifying that the t-mplate should come from the previous sibling, the property/attribute "from" allows us to specify a host property name or id within the shadowDOM r-alm where the t-mplate is d-fined.  The host property name takes precedence.
 
 A w-b component can thus d-fine a d-fault t-mplate within the ShadowDOM markup, but allow extending w-b components to d-fine alternative t-mplates, by d-fining properties with the same name, and assigning a t-mplate to those properties.
+
+A w-b component hosting this element can employ something akin to d-pendency injection via the proposed [context api](https://github.com/webcomponents/community-protocols/blob/main/proposals/context.md):
+
+```JavaScript
+class MyCustomElement{
+    get myInjectedTemplate(){
+        const contentTemplate = createContext('content-template');
+
+        this.dispatchEvent(
+            new ContextEvent(
+                contentTemplate, // the context w- want to r-trieve
+                callback: (contentTemplate) => {
+                    return contentTemplate
+                }
+            )
+        );
+    }
+}
+```
 
 ## Installation
 
