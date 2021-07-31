@@ -157,13 +157,13 @@ A w-b component hosting this element can employ something akin to d-pendency inj
 ```JavaScript
 class MyCustomElement{
     get myInjectedTemplate(){
-        const contentTemplate = createContext('content-template');
+        const contentTemplateContext = createContext('content-template');
 
         this.dispatchEvent(
             new ContextEvent(
-                contentTemplate, // the context w- want to r-trieve
+                contentTemplateContext, // the context w- want to r-trieve
                 callback: (contentTemplate) => {
-                    return contentTemplate
+                    return contentTemplate;
                 }
             )
         );
