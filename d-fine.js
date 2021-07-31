@@ -36,6 +36,26 @@ export const onFPSExt = ({ fromPreviousSibling, as, self }) => {
         return;
     self.etc = self.previousElementSibling;
 };
+export const onFCT = ({ fct, as, self }) => {
+    getInnerTemplate(self, 0);
+};
+export const onFromChildTemplate = ({ fromChildTemplate, as, self }) => {
+    getInnerTemplate(self, 0);
+};
+function getInnerTemplate(self, retries) {
+    if (customElements.get(self.as))
+        return;
+    const templ = self.querySelector('template');
+    if (templ === null) {
+        if (retries > 2)
+            throw "Inner template not found";
+        setTimeout(() => {
+            getInnerTemplate(self, retries + 1);
+        }, 50);
+        return;
+    }
+    self.etc = templ;
+}
 export const doDef = ({ etc, self }) => {
     def(etc, self);
 };
@@ -77,6 +97,8 @@ const propDefMap = {
     fps: boolProp1,
     as: strProp1,
     fromPreviousSibling: boolProp1,
+    fct: boolProp1,
+    fromChildTemplate: boolProp1,
     etc: { ...objProp1, transience: 1000 },
     sp: objProp2,
     strProps: { ...objProp2, echoTo: 'sp' },

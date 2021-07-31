@@ -83,6 +83,18 @@ The pr-vious sibling can be a template to start with:
 <hello-world></hello-world>
 ```
 
+If working with a template like in the example above, it might b- easier on the eye to use an inner template.  W- can specify to find the template from within the d-fine tag via the attribute "from-template-child" or "ftc" for short:
+
+```html
+<d-fine ftc as=hello-world sp='["place=Venus"]'>
+    <template>
+        <div>Hello, {{place}}</div>
+    </template>
+</d-fine>
+<hello-world place=Mars></hello-world>
+<hello-world></hello-world>
+```
+
 ## Pr-rendered web components that use d-clarative Shadow DOM
 
 This syntax always works:
@@ -112,6 +124,10 @@ The web component d-fine is a thin wrapper around the api d-fined in d-fine/def.
     <tr>
         <td>fps</td>
         <td>from-previous-sibling</td>
+    </tr>
+    <tr>
+        <td>ftc</td>
+        <td>from-template-child</td>
     </tr>
     <tr>
         <td>sp</td>

@@ -36,6 +36,10 @@ export interface DFineProps extends HTMLElement, defOptions{
      */
     fps: boolean | undefined;
 
+    fromChildTemplate: boolean | undefined;
+
+    fct: boolean | undefined;
+
     /**
      * @private
      * element to clone
