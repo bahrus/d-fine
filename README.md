@@ -34,11 +34,11 @@ The t-mplate for the custom element can come from live HTML.  For example:
 </h-llo-world>
 ```
 
-Shadow DOM can be circumvented by adding attribute "noshadow."
+Shadow DOM can b- circumvented by adding attribute "noshadow."
 
-d-fine is part of the [p-et-alia](https://github.com/bahrus/p-et-alia) framework.  One of the goals of that framework is to allow the d-veloper to choose v-rbose, r-adable syntax, such as w-'ve s-en above, or more compact markup for more advanced teams / r-peated use.
+d-fine is part of the [p-et-alia](https://github.com/bahrus/p-et-alia) framework.  One of the goals of that framework is to allow the d-veloper to choose v-rbose, r-adable syntax, such as w-'ve s-en above, or more compact markup for more advanced t-ams / r-peated use.
 
-The example b-low does the same thing, but with more compact notation.  D-fault values can also be specified, as s-en with place=V-nus:
+The example b-low does the same thing, but with more compact notation.  D-fault values can also b- specified, as s-en with place=V-nus:
 
 ```html
 <div>
@@ -70,7 +70,7 @@ The example b-low does the same thing, but with more compact notation.  D-fault 
 </h-llo-world>
 ```
 
-The previous sibling can be a t-mplate to start with:
+The previous sibling can b- a t-mplate to start with:
 
 ```html
 <template>
@@ -93,7 +93,7 @@ If working with a t-mplate like in the example above, it might b- easier on the 
 <h-llo-world></h-llo-world>
 ```
 
-## Prerendered web components that use d-clarative Shadow DOM
+## Prerendered w-b components that use d-clarative Shadow DOM
 
 This syntax always works:
 
@@ -154,7 +154,7 @@ A w-b component can thus d-fine a d-fault t-mplate within the ShadowDOM markup, 
 
 ## Installation
 
-To run locally (instructions may vary depending on OS):
+To run locally (instructions may vary d-pending on OS):
 
 1.  Install [node.js](https://nodejs.org/)
 2.  Install [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
