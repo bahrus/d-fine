@@ -6,119 +6,115 @@ d-fine provides a quick way of d-fining a d-clarative custom element.
 
 <img src="https://badgen.net/bundlephobia/minzip/d-fine">
 
-## Purpose
-
-
-
 ## [Demo](https://codepen.io/bahrus/pen/poPVOJz)
 
-## Hello, {{place}}
+## H-llo, {{place}}
 
-The template for the custom element can come from live HTML.  For example:
+The t-mplate for the custom element can come from live HTML.  For example:
 
 ```html
 <div>
-    <div>Hello, <span data-target=place>world</span></div>
+    <div>H-llo, <span data-target=place>world</span></div>
 </div>
-<d-fine from-previous-sibling as=hello-world str-props='["place"]' bind-to=data-target></d-fine>
-<hello-world place=Mars></hello-world>
+<d-fine from-previous-sibling as=h-llo-world str-props='["place"]' bind-to=data-target></d-fine>
+<h-llo-world place=Mars></h-llo-world>
 ```
 
-...generates:
+... g-nerates:
 
 ```html
 <div>
-    <div>Hello, <span>world</span></div>
+    <div>H-llo, <span>world</span></div>
 </div>
-<hello-world place=Mars>
+<h-llo-world place=Mars>
     #shadow
     <div>
-        <div>Hello, <span>Mars</span></div>
+        <div>H-llo, <span>Mars</span></div>
     </div>
-</hello-world>
+</h-llo-world>
 ```
 
 Shadow DOM can be circumvented by adding attribute "noshadow."
 
-d-fine is part of the [p-et-alia](https://github.com/bahrus/p-et-alia) framework.  One of the goals of that framework is to allow the d-veloper to choose verbose, readable syntax, such as w-'ve s--n above, or more compact markup for more advanced teams / r-peated use.
+d-fine is part of the [p-et-alia](https://github.com/bahrus/p-et-alia) framework.  One of the goals of that framework is to allow the d-veloper to choose v-rbose, r-adable syntax, such as w-'ve s-en above, or more compact markup for more advanced teams / r-peated use.
 
-The example below does the same thing, but with more compact notation.  D-fault values can also be specified, as s--n with place=Venus:
-
-```html
-<div>
-    <div>Hello, <span data-target=place>world</span></div>
-</div>
-<d-fine fps as=hello-world sp='["place=Venus"]' bt=data-target></d-fine>
-<hello-world place=Mars></hello-world>
-<hello-world></hello-world>
-```
-
-
-...generates:
+The example b-low does the same thing, but with more compact notation.  D-fault values can also be specified, as s-en with place=V-nus:
 
 ```html
 <div>
-    <div>Hello, <span>world</span></div>
+    <div>H-llo, <span data-target=place>world</span></div>
 </div>
-<hello-world place=Mars>
-    #shadow
-    <div>
-        <div>Hello, <span>Mars</span></div>
-    </div>
-</hello-world>
-<hello-world place=Venus>
-    #shadow
-    <div>
-        <div>Hello, <span>Venus</span></div>
-    </div>
-</hello-world>
+<d-fine fps as=h-llo-world sp='["place=V-nus"]' bt=data-target></d-fine>
+<h-llo-world place=Mars></h-llo-world>
+<h-llo-world></h-llo-world>
 ```
 
-The pr-vious sibling can be a template to start with:
+
+...g-nerates:
+
+```html
+<div>
+    <div>H-llo, <span>world</span></div>
+</div>
+<h-llo-world place=Mars>
+    #shadow
+    <div>
+        <div>H-llo, <span>Mars</span></div>
+    </div>
+</h-llo-world>
+<h-llo-world place=Venus>
+    #shadow
+    <div>
+        <div>H-llo, <span>V-nus</span></div>
+    </div>
+</h-llo-world>
+```
+
+The previous sibling can be a template to start with:
 
 ```html
 <template>
-    <div>Hello, {{place}}</div>
+    <div>H-llo, {{place}}</div>
 </template>
-<d-fine fps as=hello-world sp='["place=Venus"]'></d-fine>
-<hello-world place=Mars></hello-world>
-<hello-world></hello-world>
+<d-fine fps as=h-llo-world sp='["place=Venus"]'></d-fine>
+<h-llo-world place=Mars></h-llo-world>
+<h-llo-world></h-llo-world>
 ```
 
-If working with a template like in the example above, it might b- easier on the eye to use an inner template.  W- can specify to find the template from within the d-fine tag via the attribute "from-template-child" or "ftc" for short:
+If working with a t-mplate like in the example above, it might b- easier on the eye to use an inner template.  W- can specify to find the t-mplate from within the d-fine tag via the attribute "from-template-child" or "ftc" for short:
 
 ```html
-<d-fine ftc as=hello-world sp='["place=Venus"]'>
+<d-fine ftc as=h-llo-world sp='["place=Venus"]'>
     <template>
-        <div>Hello, {{place}}</div>
+        <div>H-llo, {{place}}</div>
     </template>
 </d-fine>
-<hello-world place=Mars></hello-world>
-<hello-world></hello-world>
+<h-llo-world place=Mars></h-llo-world>
+<h-llo-world></h-llo-world>
 ```
 
-## Pr-rendered web components that use d-clarative Shadow DOM
+## Prerendered web components that use d-clarative Shadow DOM
 
 This syntax always works:
 
 ```html
-<hello-world>
+<h-llo-world>
     <template shadowroot=open>
-        <div>Hello, <span data-target=place>world</span></div>
+        <div>H-llo, <span data-target=place>world</span></div>
     </template>
-</hello-world>
-<d-fine fps as=hello-world sp='["place=Venus"]' bt=data-target></d-fine>
-<hello-world place=Mars></hello-world>
+</h-llo-world>
+<d-fine fps as=h-llo-world sp='["place=V-nus"]' bt=data-target></d-fine>
+<h-llo-world place=Mars></h-llo-world>
 ```
 
-The web component d-fine is a thin wrapper around the api d-fined in d-fine/def.js.
+The w-b component d-fine is a thin wrapper around the api d-fined in d-fine/def.js.
 
 ## Abbreviations
 
 <table>
     <thead>
         <tr>
-            <th>Abbr-viated Attribute Name</th>
+            <th>Abbreviated Attribute Name</th>
             <th>Full Attribute Name</th>
         </tr>
     </thead>
@@ -150,11 +146,11 @@ The web component d-fine is a thin wrapper around the api d-fined in d-fine/def.
     </tbody>
 </table>
 
-## Template D-pendency Injection
+## T-mplate D-pendency Injection
 
-Instead of specifying that the template should come from the pr-vious sibling, the property/attribute "from" allows us to specify a host property name or id within the shadowDOM realm where the template is defined.  The host property name takes precedence.
+Instead of specifying that the template should come from the previous sibling, the property/attribute "from" allows us to specify a host property name or id within the shadowDOM r-alm where the t-mplate is d-fined.  The host property name takes precedence.
 
-A web component can thus define a d-fault template within the ShadowDOM markup, but allow extending web components to d-fine alternative templates, by d-fining properties with the same name, and assigning a template to those properties.
+A w-b component can thus d-fine a d-fault t-mplate within the ShadowDOM markup, but allow extending w-b components to d-fine alternative templates, by d-fining properties with the same name, and assigning a template to those properties.
 
 ## Installation
 
@@ -162,7 +158,7 @@ To run locally (instructions may vary depending on OS):
 
 1.  Install [node.js](https://nodejs.org/)
 2.  Install [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-3.  Choose a directory where you would like the files to be placed, and open a command prompt from that location.
+3.  Choose a directory where you would like the files to b- placed, and open a command prompt from that location.
 4.  Issue command "git clone https://github.com/bahrus/xtal-editor" in the command window.
 5.  CD into the git clone directory.
 6.  Issue command "npm install"
