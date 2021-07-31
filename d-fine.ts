@@ -46,7 +46,7 @@ export const onFCT = ({fct, as, self}: D) => {
     getInnerTemplate(self, 0);
 };
 
-export const onFromChildTemplate = ({fromChildTemplate, as, self}: D) => {
+export const onFCTExt = ({fromChildTemplate, as, self}: D) => {
     getInnerTemplate(self, 0);
 }
 
@@ -67,7 +67,7 @@ export const doDef = ({etc, self}: D) => {
     def(etc!, self);
 }
 
-export const propActions = [onFrom, onFPS, onFPSExt, doDef] as PropAction[];
+export const propActions = [onFrom, onFPS, onFPSExt, onFCT, onFCTExt, doDef] as PropAction[];
 
 export const baseProp: PropDef = {
     dry: true,
