@@ -1,17 +1,17 @@
 import {PropAction} from 'xtal-element/types.d.js';
 
-export interface defOptions {
+export interface defOptions <TProps = any> {
     as: string,
     /** No shadow DOM */
     noshadow?: boolean,
-    sp?: string[],
-    strProps?: string[],
-    bp?: string[],
-    boolProps?: string[],
-    np?: string[],
-    numProps?: string[],
-    op?: string[],
-    objProps?: string[],
+    sp?: (keyof TProps)[],
+    strProps?: (keyof TProps)[],
+    bp?: (keyof TProps)[],
+    boolProps?: (keyof TProps)[],
+    np?: (keyof TProps)[],
+    numProps?: (keyof TProps)[],
+    op?: (keyof TProps)[],
+    objProps?: (keyof TProps)[],
     propActionsForDef?: PropAction[],
     styleTemplate?: HTMLTemplateElement,
     bindTo?: string | undefined;

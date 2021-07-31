@@ -3,7 +3,7 @@ import {xc, PropAction, PropDef, PropDefMap, ReactiveSurface, IReactor} from 'xt
 import {passAttrToProp} from 'xtal-element/lib/passAttrToProp.js';
 import {TemplateInstance} from 'templ-arts/lib/index.js';
 
-export function def(templ: HTMLTemplateElement | Element, options: defOptions){
+export function def<TProps = any>(templ: HTMLTemplateElement | Element, options: defOptions<TProps>){
     let templateToClone = templ as HTMLTemplateElement;
     if(!(templateToClone instanceof HTMLTemplateElement)){
         templateToClone = document.createElement('template');
