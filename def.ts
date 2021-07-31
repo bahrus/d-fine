@@ -126,5 +126,6 @@ export function def(templ: HTMLTemplateElement | Element, options: defOptions){
         */
         tpl: TemplateInstance | undefined;
     }
+    xc.letThereBeProps(newClass, slicedPropDefs, 'onPropChange');
     xc.define(newClass);
 }

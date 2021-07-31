@@ -17,12 +17,16 @@
     <div id=target></div>
 
     <button onclick="moveToTarget()">Move it</button>
+    <button onclick="setIt()">Set It</button>
     <script>
         function moveToTarget(){
             target.appendChild(venus);
-            venus.place = 'V-nus'
+            venus.place = 'V-nus';
         }
-       
+        function setIt(){
+            console.log('setting it');
+            venus.place = 'V-nus';
+        }
     </script>
     <script type=importmap>
         {

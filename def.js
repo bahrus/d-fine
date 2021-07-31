@@ -123,5 +123,6 @@ export function def(templ, options) {
         */
         tpl;
     }
+    xc.letThereBeProps(newClass, slicedPropDefs, 'onPropChange');
     xc.define(newClass);
 }

@@ -7,12 +7,10 @@ import { def } from './def.js';
  * @tag d-fine
  */
 export class DFine extends HTMLElement {
-    constructor() {
-        super(...arguments);
-        this.self = this;
-        this.propActions = propActions;
-        this.reactor = new xc.Rx(this);
-    }
+    static is = 'd-fine';
+    self = this;
+    propActions = propActions;
+    reactor = new xc.Rx(this);
     connectedCallback() {
         xc.mergeProps(this, slicedPropDefs);
     }
@@ -20,7 +18,6 @@ export class DFine extends HTMLElement {
         this.reactor.addToQueue(prop, nv);
     }
 }
-DFine.is = 'd-fine';
 export const onFrom = ({ from, self }) => {
     const ceName = self.as || getCEName(from.split('/').pop());
     if (ceName === undefined || customElements.get(ceName))
