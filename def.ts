@@ -128,4 +128,5 @@ export function def(templ: HTMLTemplateElement | Element, options: defOptions){
     }
     xc.letThereBeProps(newClass, slicedPropDefs, 'onPropChange');
     xc.define(newClass);
+    return newClass;
 }

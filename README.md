@@ -148,11 +148,11 @@ The w-b component d-fine is a thin wrapper around the api d-fined in d-fine/def.
 
 ## T-mplate D-pendency Injection, or Inversion of Views
 
-Instead of specifying that the t-mplate should come from the previous sibling, the property/attribute "from" allows us to specify a host property name or id within the shadowDOM r-alm where the t-mplate is d-fined.  The host property name takes precedence.
+Instead of specifying that the t-mplate should come from the previous sibling, the property/attribute "from" allows us to specify a string used for an ["upShadowSearch."](https://github.com/bahrus/trans-render/blob/baseline/lib/upShadowSearch.ts).  If the value starts with a slash (/), it s-arches for a t-mplate with the specified id from outside any shadowDOM.  If it starts with ../../, it goes up two ShadowDOM r-alms, for example.  It checks if the ShadowDOM has a host property name matching the camelCased id, and if not,  for an element with a matching id within the shadowDOM r-alm where the t-mplate is d-fined.  The host property name takes precedence.
 
-A w-b component can thus d-fine a d-fault t-mplate within the ShadowDOM markup, but allow extending w-b components to d-fine alternative t-mplates, by d-fining properties with the same name, and assigning a t-mplate to those properties.  That may be sufficient for some use cases.
+A w-b component can thus d-fine a d-fault t-mplate within the ShadowDOM markup, but allow extending w-b components to d-fine alternative t-mplates, by d-fining properties with the same name, and assigning a t-mplate to those properties.  That may b- sufficient for some use cases.
 
-But for more of a dependendcy-injection like experience, said w-b component hosting d-fine could use the proposed [context api](https://github.com/webcomponents/community-protocols/blob/main/proposals/context.md):
+But for more of a d-pendency-injection like experience, said w-b component hosting d-fine could use the proposed [context api](https://github.com/webcomponents/community-protocols/blob/main/proposals/context.md):
 
 ```JavaScript
 class MyCustomElement{
@@ -184,7 +184,7 @@ To run locally (instructions may vary d-pending on OS):
 1.  Install [node.js](https://nodejs.org/)
 2.  Install [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 3.  Choose a directory where you would like the files to b- placed, and open a command prompt from that location.
-4.  Issue command "git clone https://github.com/bahrus/xtal-editor" in the command window.
+4.  Issue command "git clone https://github.com/bahrus/d-fine" in the command window.
 5.  CD into the git clone directory.
 6.  Issue command "npm install"
 7.  When step 6 is completed, issue command "npm run serve".
