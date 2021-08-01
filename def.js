@@ -87,12 +87,11 @@ export function def(templ, options) {
     }
     const slicedPropDefs = xc.getSlicedPropDefs(propDefMap);
     class newClass extends HTMLElement {
-        constructor() {
-            super(...arguments);
-            this.self = this;
-            this.propActions = options.propActionsForDef || [];
-            this.reactor = new xc.Rx(this);
-        }
+        static is = options.as;
+        static observedAttributes = [...slicedPropDefs.boolNames, ...slicedPropDefs.numNames, ...slicedPropDefs.strNames];
+        self = this;
+        propActions = options.propActionsForDef || [];
+        reactor = new xc.Rx(this);
         attributeChangedCallback(name, oldValue, newValue) {
             passAttrToProp(this, slicedPropDefs, name, oldValue, newValue);
         }
@@ -119,9 +118,11 @@ export function def(templ, options) {
                 return;
             this.tpl.update(this);
         }
+        /**
+        * @private
+        */
+        tpl;
     }
-    newClass.is = options.as;
-    newClass.observedAttributes = [...slicedPropDefs.boolNames, ...slicedPropDefs.numNames, ...slicedPropDefs.strNames];
     xc.letThereBeProps(newClass, slicedPropDefs, 'onPropChange');
     xc.define(newClass);
     return newClass;

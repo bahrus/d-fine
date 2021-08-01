@@ -93,9 +93,11 @@ If working with a t-mplate like in the example above, it might b- easier on the 
 <h-llo-world></h-llo-world>
 ```
 
+As we can see above, when using templates (or live DOM for that matter), basic moustache-style templating is supported, where the expressions inside the moustache are names of properties defined for the component.  The library used for this binding is package ["templ-arts"](https://www.npmjs.com/package/templ-arts), a fork of github's template-parts, that adds slightly richer functionality. 
+
 ## Prerendered w-b components that use d-clarative Shadow DOM
 
-This syntax always works:
+This syntax also works:
 
 ```html
 <h-llo-world>
