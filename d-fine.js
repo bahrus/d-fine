@@ -111,8 +111,8 @@ const propDefMap = {
     propActionsForDef: objProp0,
     noshadow: boolProp0,
     styleTemplate: objProp0,
-    bt: strProp0,
-    bindTo: { ...strProp0, 'echoTo': 'bt' }
+    //bt: strProp0,
+    //bindTo: {...strProp0,'echoTo': 'bt'}
 };
 const slicedPropDefs = xc.getSlicedPropDefs(propDefMap);
 xc.letThereBeProps(DFine, slicedPropDefs, 'onPropChange');

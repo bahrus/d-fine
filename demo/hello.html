@@ -8,9 +8,9 @@
 </head>
 <body>
     <div>
-        <div>Hello, <span data-target=place>world</span></div>
+        <div>Hello, <span data-bind=place>world</span></div>
     </div>
-    <d-fine fps as=hello-world sp='["place=Venus"]' bt=data-target></d-fine>
+    <d-fine fps as=hello-world sp='["place=Venus"]'></d-fine>
     <hello-world place=Mars></hello-world>
     <hello-world></hello-world>
     <script type=importmap>
@@ -18,7 +18,8 @@
             "imports":{
                 "xtal-element/": "../node_modules/xtal-element/",
                 "trans-render/": "../node_modules/trans-render/",
-                "templ-arts/": "../node_modules/templ-arts/"
+                "templ-arts/": "../node_modules/templ-arts/",
+                "xodus/": "../node_modules/xodus/"
             }
         }
     </script>

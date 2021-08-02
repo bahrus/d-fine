@@ -4,18 +4,18 @@ export interface defOptions <TProps = any> {
     as: string,
     /** No shadow DOM */
     noshadow?: boolean,
-    sp?: (keyof TProps)[],
-    strProps?: (keyof TProps)[],
-    bp?: (keyof TProps)[],
-    boolProps?: (keyof TProps)[],
-    np?: (keyof TProps)[],
-    numProps?: (keyof TProps)[],
-    op?: (keyof TProps)[],
-    objProps?: (keyof TProps)[],
+    sp?: (keyof TProps & string)[],
+    strProps?: (keyof TProps & string)[],
+    bp?: (keyof TProps & string)[],
+    boolProps?: (keyof TProps & string)[],
+    np?: (keyof TProps & string)[],
+    numProps?: (keyof TProps & string)[],
+    op?: (keyof TProps & string)[],
+    objProps?: (keyof TProps & string)[],
     propActionsForDef?: PropAction[],
     styleTemplate?: HTMLTemplateElement,
-    bindTo?: string | undefined;
-    bt?: string | undefined;
+    //bindTo?: string | undefined;
+    //bt?: string | undefined;
 }
 
 export interface DFineProps extends HTMLElement, defOptions{

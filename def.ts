@@ -2,26 +2,10 @@ import { defOptions } from "./types";
 import {xc, PropAction, PropDef, PropDefMap, ReactiveSurface, IReactor} from 'xtal-element/lib/XtalCore.js';
 import {passAttrToProp} from 'xtal-element/lib/passAttrToProp.js';
 import {TemplateInstance} from 'templ-arts/lib/index.js';
+import {toTempl} from 'xodus/toTempl.js';
 
 export function def<TProps = any>(templ: HTMLTemplateElement | Element, options: defOptions<TProps>){
-    let templateToClone = templ as HTMLTemplateElement;
-    if(!(templateToClone instanceof HTMLTemplateElement)){
-        templateToClone = document.createElement('template');
-        if(templ.localName === options.as && templ.shadowRoot !== null){
-            templateToClone.innerHTML = templ.shadowRoot.innerHTML;
-        }else{
-            templateToClone.innerHTML = templ.innerHTML;
-        }
-                
-    }
-    const bindTo = options.bt || options.bindTo;
-    if(bindTo !== undefined){
-        const targets = templateToClone.content.querySelectorAll(`[${bindTo}]`);
-        for(const target of targets){
-            target.innerHTML = `{{${target.getAttribute(bindTo)}}}`;
-            target.removeAttribute(bindTo);
-        }
-    }
+    const templateToClone = toTempl(templ, templ.localName === options.as && templ.shadowRoot !== null);
     const propDefMap: PropDefMap<any> = {};
     const baseProp: PropDef = {
         async: true,

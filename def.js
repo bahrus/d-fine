@@ -1,25 +1,9 @@
 import { xc } from 'xtal-element/lib/XtalCore.js';
 import { passAttrToProp } from 'xtal-element/lib/passAttrToProp.js';
 import { TemplateInstance } from 'templ-arts/lib/index.js';
+import { toTempl } from 'xodus/toTempl.js';
 export function def(templ, options) {
-    let templateToClone = templ;
-    if (!(templateToClone instanceof HTMLTemplateElement)) {
-        templateToClone = document.createElement('template');
-        if (templ.localName === options.as && templ.shadowRoot !== null) {
-            templateToClone.innerHTML = templ.shadowRoot.innerHTML;
-        }
-        else {
-            templateToClone.innerHTML = templ.innerHTML;
-        }
-    }
-    const bindTo = options.bt || options.bindTo;
-    if (bindTo !== undefined) {
-        const targets = templateToClone.content.querySelectorAll(`[${bindTo}]`);
-        for (const target of targets) {
-            target.innerHTML = `{{${target.getAttribute(bindTo)}}}`;
-            target.removeAttribute(bindTo);
-        }
-    }
+    const templateToClone = toTempl(templ, templ.localName === options.as && templ.shadowRoot !== null);
     const propDefMap = {};
     const baseProp = {
         async: true,
