@@ -14,9 +14,9 @@ The t-mplate for the custom element can come from live HTML.  For example:
 
 ```html
 <div>
-    <div>H-llo, <span data-target=place>world</span></div>
+    <div>H-llo, <span data-bind=place>world</span></div>
 </div>
-<d-fine from-previous-sibling as=h-llo-world str-props='["place"]' bind-to=data-target></d-fine>
+<d-fine from-previous-sibling as=h-llo-world str-props='["place"]'></d-fine>
 <h-llo-world place=Mars></h-llo-world>
 ```
 
@@ -42,9 +42,9 @@ The example b-low does the same thing, but with more compact notation.  D-fault 
 
 ```html
 <div>
-    <div>H-llo, <span data-target=place>world</span></div>
+    <div>H-llo, <span data-bind=place>world</span></div>
 </div>
-<d-fine fps as=h-llo-world sp='["place=V-nus"]' bt=data-target></d-fine>
+<d-fine fps as=h-llo-world sp='["place=V-nus"]'></d-fine>
 <h-llo-world place=Mars></h-llo-world>
 <h-llo-world></h-llo-world>
 ```
@@ -102,10 +102,10 @@ This syntax also works:
 ```html
 <h-llo-world>
     <template shadowroot=open>
-        <div>H-llo, <span data-target=place>world</span></div>
+        <div>H-llo, <span data-bind=place>world</span></div>
     </template>
 </h-llo-world>
-<d-fine fps as=h-llo-world sp='["place=V-nus"]' bt=data-target></d-fine>
+<d-fine fps as=h-llo-world sp='["place=V-nus"]'></d-fine>
 <h-llo-world place=Mars></h-llo-world>
 ```
 
