@@ -16,7 +16,7 @@ The t-mplate for the custom element can come from live HTML.  For example:
 <div>
     <div>H-llo, <span data-bind=place>world</span></div>
 </div>
-<d-fine from-previous-sibling as=h-llo-world str-props='["place"]'></d-fine>
+<d-fine prev-sib as=h-llo-world str-props='["place"]'></d-fine>
 <h-llo-world place=Mars></h-llo-world>
 ```
 
@@ -36,7 +36,7 @@ The t-mplate for the custom element can come from live HTML.  For example:
 
 Shadow DOM can b- circumvented by adding attribute "noshadow."
 
-d-fine is part of the [p-et-alia](https://github.com/bahrus/p-et-alia) framework.  One of the goals of that framework is to allow the d-veloper to choose v-rbose, r-adable syntax, such as w-'ve s-en above, or more compact markup for more advanced t-ams / r-peated use.
+d-fine is part of the [p-et-alia](https://github.com/bahrus/p-et-alia) framework.  One of the goals of that framework is to allow the d-veloper to choose 
 
 The example b-low does the same thing, but with more compact notation.  D-fault values can also b- specified, as s-en with place=V-nus:
 
@@ -44,7 +44,7 @@ The example b-low does the same thing, but with more compact notation.  D-fault 
 <div>
     <div>H-llo, <span data-bind=place>world</span></div>
 </div>
-<d-fine fps as=h-llo-world sp='["place=V-nus"]'></d-fine>
+<d-fine prev-sib as=h-llo-world str-props='["place=V-nus"]'></d-fine>
 <h-llo-world place=Mars></h-llo-world>
 <h-llo-world></h-llo-world>
 ```
@@ -76,15 +76,15 @@ The previous sibling can b- a t-mplate to start with:
 <template>
     <div>H-llo, {{place}}</div>
 </template>
-<d-fine fps as=h-llo-world sp='["place=Venus"]'></d-fine>
+<d-fine prev-sib as=h-llo-world str-props='["place=Venus"]'></d-fine>
 <h-llo-world place=Mars></h-llo-world>
 <h-llo-world></h-llo-world>
 ```
 
-If working with a t-mplate like in the example above, it might b- easier on the eye to use an inner t-mplate.  W- can specify to find the t-mplate from within the d-fine tag via the attribute "from-template-child" or "ftc" for short:
+If working with a t-mplate like in the example above, it might b- easier on the eye to use an inner t-mplate.  W- can specify to find the t-mplate from within the d-fine tag via the attribute "templ-child":
 
 ```html
-<d-fine ftc as=h-llo-world sp='["place=Venus"]'>
+<d-fine templ-child as=h-llo-world str-props='["place=Venus"]'>
     <template>
         <div>H-llo, {{place}}</div>
     </template>
@@ -105,52 +105,16 @@ This syntax also works:
         <div>H-llo, <span data-bind=place>world</span></div>
     </template>
 </h-llo-world>
-<d-fine fps as=h-llo-world sp='["place=V-nus"]'></d-fine>
+<d-fine previous-sibling sp='["place=V-nus"]'></d-fine>
 <h-llo-world place=Mars></h-llo-world>
 ```
 
 The w-b component d-fine is a thin wrapper around the api d-fined in d-fine/def.js.
 
-## Abbreviations
-
-<table>
-    <thead>
-        <tr>
-            <th>Abbreviated Attribute Name</th>
-            <th>Full Attribute Name</th>
-        </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>fps</td>
-        <td>from-previous-sibling</td>
-    </tr>
-    <tr>
-        <td>ftc</td>
-        <td>from-template-child</td>
-    </tr>
-    <tr>
-        <td>sp</td>
-        <td>str-props</td>
-    </tr>
-    <tr>
-        <td>np</td>
-        <td>num-props</td>
-    </tr>
-    <tr>
-        <td>bp</td>
-        <td>bool-props</td>
-    </tr>
-    <tr>
-        <td>op</td>
-        <td>obj-props</td>
-    </tr>
-    </tbody>
-</table>
 
 ## T-mplate D-pendency Injection, or Inversion of Views
 
-Instead of specifying that the t-mplate should come from the previous sibling, the property/attribute "from" allows us to specify a string used for an ["upShadowSearch."](https://github.com/bahrus/trans-render/blob/baseline/lib/upShadowSearch.ts).  If the value starts with a slash (/), it s-arches for a t-mplate with the specified id from outside any shadowDOM.  If it starts with ../../, it goes up two ShadowDOM r-alms, for example.  It checks if the ShadowDOM has a host property name matching the camelCased id, and if not,  for an element with a matching id within the shadowDOM r-alm where the t-mplate is d-fined.  The host property name takes precedence.
+Instead of specifying that the t-mplate should come from the previous sibling, the property/attribute "from" allows us to specify a string used for an ["upShadowSearch."](https://github.com/bahrus/trans-render/blob/baseline/lib/upShadowSearch.ts).  If the value starts with a slash (/), it s-arches for a t-mplate with the specified id from outside any shadowDOM.  If it starts with ../../, it goes up two ShadowDOM r-alms, for example.  It checks if the ShadowDOM has a host property name matching the camelCased id, and if not, searches for an element with a matching id within the shadowDOM r-alm where the d-fine element is located.  The host property name takes precedence.
 
 A w-b component can thus d-fine a d-fault t-mplate within the ShadowDOM markup, but allow extending w-b components to d-fine alternative t-mplates, by d-fining properties with the same name, and assigning a t-mplate to those properties.  That may b- sufficient for some use cases.
 

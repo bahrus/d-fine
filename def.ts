@@ -13,7 +13,7 @@ export function def<TProps = any>(templ: HTMLTemplateElement | Element, options:
         reflect: true
     };
     const defaults: any = {};
-    const strProps = options.sp || options.strProps;
+    const strProps = options.strProps;
     if(strProps !== undefined){
         for(const stringProp of strProps){
             const split = stringProp.split('=').map(s => s.trim());
@@ -27,7 +27,7 @@ export function def<TProps = any>(templ: HTMLTemplateElement | Element, options:
             }
         }
     }
-    const boolProps = options.bp || options.boolProps;
+    const boolProps = options.boolProps;
     if(boolProps !== undefined){
         for(const boolProp of boolProps){
             const split = boolProp.split('=').map(s => s.trim());
@@ -41,7 +41,7 @@ export function def<TProps = any>(templ: HTMLTemplateElement | Element, options:
             }
         }        
     }
-    const numProps = options.np || options.numProps;
+    const numProps = options.numProps;
     if(numProps !== undefined){
         for(const numProp of numProps){
             const split = numProp.split('=').map(s => s.trim());
@@ -56,7 +56,7 @@ export function def<TProps = any>(templ: HTMLTemplateElement | Element, options:
             }
         }        
     }
-    const objProps = options.op || options.objProps;
+    const objProps = options.objProps;
     if(objProps !== undefined){
         for(const objProp of objProps){
             const split = objProp.split('=').map(s => s.trim());

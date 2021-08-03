@@ -1,16 +1,12 @@
 import {PropAction} from 'xtal-element/types.d.js';
 
-export interface defOptions <TProps = any> {
+export interface defOptions<TProps = any> {
     as: string,
     /** No shadow DOM */
     noshadow?: boolean,
-    sp?: (keyof TProps & string)[],
     strProps?: (keyof TProps & string)[],
-    bp?: (keyof TProps & string)[],
     boolProps?: (keyof TProps & string)[],
-    np?: (keyof TProps & string)[],
     numProps?: (keyof TProps & string)[],
-    op?: (keyof TProps & string)[],
     objProps?: (keyof TProps & string)[],
     propActionsForDef?: PropAction[],
     styleTemplate?: HTMLTemplateElement,
@@ -29,16 +25,10 @@ export interface DFineProps extends HTMLElement, defOptions{
     /**
     * Get template from previous sibling.
     */
-    fromPreviousSibling: boolean | undefined;
+    prevSib: boolean | undefined;
 
-    /**
-     * Shortcut for fromPrevSibling
-     */
-    fps: boolean | undefined;
+    templChild: boolean | undefined;
 
-    fromChildTemplate: boolean | undefined;
-
-    fct: boolean | undefined;
 
     /**
      * @private

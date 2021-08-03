@@ -32,21 +32,13 @@ export const onFrom = ({from, self} : D) => {
     self.etc = upShadowSearch(self, from!);
 }
 
-export const onFPS = ({fps, as, self}: D) => {
-    if(customElements.get(as)) return;
-    self.etc = self.previousElementSibling;
-}
 
-export const onFPSExt = ({fromPreviousSibling, as, self}: D) => {
+export const onPrevSib = ({prevSib, as, self}: D) => {
     if(customElements.get(as)) return;
     self.etc = self.previousElementSibling;
 };
 
-export const onFCT = ({fct, as, self}: D) => {
-    getInnerTemplate(self, 0);
-};
-
-export const onFCTExt = ({fromChildTemplate, as, self}: D) => {
+export const onTemplChild = ({templChild, as, self}: D) => {
     getInnerTemplate(self, 0);
 }
 
@@ -67,7 +59,7 @@ export const doDef = ({etc, self}: D) => {
     def(etc!, self);
 }
 
-export const propActions = [onFrom, onFPS, onFPSExt, onFCT, onFCTExt, doDef] as PropAction[];
+export const propActions = [onFrom, onPrevSib, onTemplChild, doDef] as PropAction[];
 
 export const baseProp: PropDef = {
     dry: true,
@@ -112,19 +104,13 @@ export const objProp2: PropDef = {
 
 const propDefMap: PropDefMap<D> = {
     from: strProp1,
-    fps: boolProp1,
     as: strProp1,
-    fromPreviousSibling: boolProp1,
-    fct: boolProp1,
-    fromChildTemplate: boolProp1,
+    prevSib: boolProp1,
+    templChild: boolProp1,
     etc: {...objProp1, transience: 1000},
-    sp: objProp2,
     strProps: {...objProp2, echoTo:'sp'},
-    np: objProp2,
     numProps: {...objProp2, echoTo:'np'},
-    op: objProp2,
     objProps: {...objProp2, echoTo: 'op'},
-    bp: objProp2,
     boolProps: {...objProp2, echoTo: 'bp'},
     propActionsForDef: objProp0,
     noshadow: boolProp0,
