@@ -12,6 +12,33 @@
           "name": "DFine",
           "members": [
             {
+              "kind": "field",
+              "name": "is",
+              "type": {
+                "text": "string"
+              },
+              "static": true,
+              "default": "'d-fine'"
+            },
+            {
+              "kind": "field",
+              "name": "self",
+              "default": "this"
+            },
+            {
+              "kind": "field",
+              "name": "propActions",
+              "default": "[onFrom, onPrevSib, onTemplChild, doDef]",
+              "type": {
+                "text": "array"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "reactor",
+              "default": "new xc.Rx(this)"
+            },
+            {
               "kind": "method",
               "name": "onPropChange",
               "parameters": [
@@ -25,24 +52,6 @@
                   "name": "nv"
                 }
               ]
-            },
-            {
-              "kind": "field",
-              "name": "self",
-              "default": "this"
-            },
-            {
-              "kind": "field",
-              "name": "propActions",
-              "default": "[onFrom, onFPS, onFPSExt, doDef]",
-              "type": {
-                "text": "array"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "reactor",
-              "default": "new xc.Rx(this)"
             }
           ],
           "superclass": {
@@ -56,25 +65,25 @@
           "name": "onFrom",
           "parameters": [
             {
-              "name": "{ from, self }"
+              "name": "{ from, as, self }"
             }
           ]
         },
         {
           "kind": "function",
-          "name": "onFPS",
+          "name": "onPrevSib",
           "parameters": [
             {
-              "name": "{ fps, as, self }"
+              "name": "{ prevSib, as, self }"
             }
           ]
         },
         {
           "kind": "function",
-          "name": "onFPSExt",
+          "name": "onTemplChild",
           "parameters": [
             {
-              "name": "{ fromPreviousSibling, as, self }"
+              "name": "{ templChild, as, self }"
             }
           ]
         },
@@ -93,7 +102,7 @@
           "type": {
             "text": "array"
           },
-          "default": "[onFrom, onFPS, onFPSExt, doDef]"
+          "default": "[onFrom, onPrevSib, onTemplChild, doDef]"
         },
         {
           "kind": "variable",
@@ -179,17 +188,17 @@
         },
         {
           "kind": "js",
-          "name": "onFPS",
+          "name": "onPrevSib",
           "declaration": {
-            "name": "onFPS",
+            "name": "onPrevSib",
             "module": "d-fine.js"
           }
         },
         {
           "kind": "js",
-          "name": "onFPSExt",
+          "name": "onTemplChild",
           "declaration": {
-            "name": "onFPSExt",
+            "name": "onTemplChild",
             "module": "d-fine.js"
           }
         },
@@ -301,7 +310,7 @@
             {
               "kind": "field",
               "name": "propActions",
-              "default": "[onFrom, onFPS, onFPSExt, doDef]"
+              "default": "[onFrom, onPrevSib, onTemplChild, doDef]"
             },
             {
               "kind": "field",
@@ -347,7 +356,7 @@
           "name": "onFrom",
           "parameters": [
             {
-              "name": "{from, self}",
+              "name": "{from, as, self}",
               "type": {
                 "text": "D"
               }
@@ -356,10 +365,10 @@
         },
         {
           "kind": "function",
-          "name": "onFPS",
+          "name": "onPrevSib",
           "parameters": [
             {
-              "name": "{fps, as, self}",
+              "name": "{prevSib, as, self}",
               "type": {
                 "text": "D"
               }
@@ -368,10 +377,10 @@
         },
         {
           "kind": "function",
-          "name": "onFPSExt",
+          "name": "onTemplChild",
           "parameters": [
             {
-              "name": "{fromPreviousSibling, as, self}",
+              "name": "{templChild, as, self}",
               "type": {
                 "text": "D"
               }
@@ -393,7 +402,7 @@
         {
           "kind": "variable",
           "name": "propActions",
-          "default": "[onFrom, onFPS, onFPSExt, doDef]"
+          "default": "[onFrom, onPrevSib, onTemplChild, doDef]"
         },
         {
           "kind": "variable",
@@ -479,17 +488,17 @@
         },
         {
           "kind": "js",
-          "name": "onFPS",
+          "name": "onPrevSib",
           "declaration": {
-            "name": "onFPS",
+            "name": "onPrevSib",
             "module": "d-fine.ts"
           }
         },
         {
           "kind": "js",
-          "name": "onFPSExt",
+          "name": "onTemplChild",
           "declaration": {
-            "name": "onFPSExt",
+            "name": "onTemplChild",
             "module": "d-fine.ts"
           }
         },
@@ -580,8 +589,50 @@
       "path": "def.js",
       "declarations": [
         {
-          "kind": "function",
+          "kind": "mixin",
+          "description": "",
           "name": "def",
+          "members": [
+            {
+              "kind": "field",
+              "name": "is",
+              "static": true
+            },
+            {
+              "kind": "field",
+              "name": "self",
+              "default": "this"
+            },
+            {
+              "kind": "field",
+              "name": "propActions"
+            },
+            {
+              "kind": "field",
+              "name": "reactor",
+              "default": "new xc.Rx(this)"
+            },
+            {
+              "kind": "method",
+              "name": "onPropChange",
+              "parameters": [
+                {
+                  "name": "name"
+                },
+                {
+                  "name": "propDef"
+                },
+                {
+                  "name": "newVal"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "tpl",
+              "privacy": "private"
+            }
+          ],
           "parameters": [
             {
               "name": "templ"
@@ -608,8 +659,65 @@
       "path": "def.ts",
       "declarations": [
         {
-          "kind": "function",
+          "kind": "mixin",
+          "description": "",
           "name": "def",
+          "members": [
+            {
+              "kind": "field",
+              "name": "is",
+              "static": true
+            },
+            {
+              "kind": "field",
+              "name": "self",
+              "default": "this"
+            },
+            {
+              "kind": "field",
+              "name": "propActions"
+            },
+            {
+              "kind": "field",
+              "name": "reactor",
+              "type": {
+                "text": "IReactor"
+              },
+              "default": "new xc.Rx(this)"
+            },
+            {
+              "kind": "method",
+              "name": "onPropChange",
+              "parameters": [
+                {
+                  "name": "name",
+                  "type": {
+                    "text": "string"
+                  }
+                },
+                {
+                  "name": "propDef",
+                  "type": {
+                    "text": "PropDef"
+                  }
+                },
+                {
+                  "name": "newVal",
+                  "type": {
+                    "text": "any"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "tpl",
+              "type": {
+                "text": "TemplateInstance | undefined"
+              },
+              "privacy": "private"
+            }
+          ],
           "parameters": [
             {
               "name": "templ",
@@ -620,7 +728,7 @@
             {
               "name": "options",
               "type": {
-                "text": "defOptions"
+                "text": "defOptions<TProps>"
               }
             }
           ]

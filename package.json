@@ -13,13 +13,13 @@
   "dependencies": {
     "templ-arts": "0.0.7",
     "trans-render": "0.0.291",
-    "xtal-element": "0.0.418",
+    "xtal-element": "0.0.420",
     "xodus": "0.0.3"
   },
   "devDependencies": {
     "xtal-test": "0.0.51",
     "@skypack/package-check": "0.2.2",
-    "@custom-elements-manifest/analyzer": "0.4.14"
+    "@custom-elements-manifest/analyzer": "0.4.17"
   },
   "scripts": {
     "serve": "node node_modules/xtal-test/serve.js",
