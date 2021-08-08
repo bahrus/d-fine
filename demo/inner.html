@@ -7,9 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <d-fine fct as=hello-world sp='["place=Venus"]'>
+    <d-fine templ-child as=hello-world str-props='["place=Venus"]'>
         <template>
-            <div>Hello, <span data-bind=place>world</span></div>
+            <div>Hello, <span x-f=place>world</span></div>
         </template>
     </d-fine>
     <hello-world place=Mars></hello-world>
@@ -19,7 +19,8 @@
             "imports":{
                 "xtal-element/": "../node_modules/xtal-element/",
                 "trans-render/": "../node_modules/trans-render/",
-                "templ-arts/": "../node_modules/templ-arts/"
+                "templ-arts/": "../node_modules/templ-arts/",
+                "xodus/": "../node_modules/xodus/"
             }
         }
     </script>
