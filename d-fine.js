@@ -18,7 +18,7 @@ export class DFine extends HTMLElement {
         this.reactor.addToQueue(prop, nv);
     }
 }
-export const onFrom = ({ from, self }) => {
+export const onFrom = ({ from, as, self }) => {
     const ceName = self.as || getCEName(from.split('/').pop());
     if (ceName === undefined || customElements.get(ceName))
         return;
@@ -27,9 +27,18 @@ export const onFrom = ({ from, self }) => {
     self.etc = upShadowSearch(self, from);
 };
 export const onPrevSib = ({ prevSib, as, self }) => {
-    if (customElements.get(as))
+    const prevElSibling = self.previousElementSibling;
+    if (prevElSibling === null)
         return;
-    self.etc = self.previousElementSibling;
+    const ln = prevElSibling.localName;
+    const ceName = ln.includes('-') ? ln : as;
+    if (ceName === undefined)
+        return;
+    if (customElements.get(ceName))
+        return;
+    if (self.as === undefined)
+        self.as = ceName;
+    self.etc = prevElSibling;
 };
 export const onTemplChild = ({ templChild, as, self }) => {
     getInnerTemplate(self, 0);
@@ -86,7 +95,7 @@ export const objProp2 = {
 };
 const propDefMap = {
     from: strProp1,
-    as: strProp1,
+    as: strProp0,
     prevSib: boolProp1,
     templChild: boolProp1,
     etc: { ...objProp1, transience: 1000 },

@@ -102,12 +102,14 @@ This syntax also works:
 ```html
 <h-llo-world>
     <template shadowroot=open>
-        <div>H-llo, <span data-bind=place>world</span></div>
+        <div>H-llo, <span x-f=place>world</span></div>
     </template>
 </h-llo-world>
-<d-fine previous-sibling sp='["place=V-nus"]'></d-fine>
+<d-fine prev-sib str-props='["place=V-nus"]'></d-fine>
 <h-llo-world place=Mars></h-llo-world>
 ```
+
+x-f stands for "expand from".
 
 The w-b component d-fine is a thin wrapper around the api d-fined in d-fine/def.js.
 

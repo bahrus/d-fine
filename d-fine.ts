@@ -25,7 +25,7 @@ export class DFine extends HTMLElement implements ReactiveSurface{
 export interface DFine extends DFineProps{}
 type D = DFine;
 
-export const onFrom = ({from, self} : D) => {
+export const onFrom = ({from, as, self} : D) => {
     const ceName = self.as || getCEName(from!.split('/').pop()!);
     if(ceName === undefined || customElements.get(ceName)) return;
     if(self.as === undefined) self.as = ceName;
@@ -34,8 +34,14 @@ export const onFrom = ({from, self} : D) => {
 
 
 export const onPrevSib = ({prevSib, as, self}: D) => {
-    if(customElements.get(as)) return;
-    self.etc = self.previousElementSibling;
+    const prevElSibling = self.previousElementSibling;
+    if(prevElSibling === null) return;
+    const ln = prevElSibling.localName;
+    const ceName = ln.includes('-') ? ln : as;
+    if(ceName === undefined) return;
+    if(customElements.get(ceName)) return;
+    if(self.as === undefined) self.as = ceName;
+    self.etc = prevElSibling;
 };
 
 export const onTemplChild = ({templChild, as, self}: D) => {
@@ -104,7 +110,7 @@ export const objProp2: PropDef = {
 
 const propDefMap: PropDefMap<D> = {
     from: strProp1,
-    as: strProp1,
+    as: strProp0,
     prevSib: boolProp1,
     templChild: boolProp1,
     etc: {...objProp1, transience: 1000},
