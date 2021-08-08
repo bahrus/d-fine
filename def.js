@@ -1,7 +1,7 @@
 import { xc } from 'xtal-element/lib/XtalCore.js';
 import { passAttrToProp } from 'xtal-element/lib/passAttrToProp.js';
-import { TemplateInstance } from 'templ-arts/lib/index.js';
 import { toTempl } from 'xodus/toTempl.js';
+//import { TemplateInstance } from "templ-arts/lib/index.js";
 export function def(templ, options) {
     const templateToClone = toTempl(templ, templ.localName === options.as && templ.shadowRoot !== null);
     const propDefMap = {};
@@ -79,11 +79,20 @@ export function def(templ, options) {
         attributeChangedCallback(name, oldValue, newValue) {
             passAttrToProp(this, slicedPropDefs, name, oldValue, newValue);
         }
-        connectedCallback() {
+        async connectedCallback() {
             if (this.tpl !== undefined)
                 return;
             xc.mergeProps(this, slicedPropDefs, defaults);
-            this.tpl = new TemplateInstance(templateToClone, this);
+            if (!options.noInlineBind) {
+                const { TemplateInstance } = await import('templ-arts/lib/index.js');
+                this.tpl = new TemplateInstance(templateToClone, this);
+            }
+            else {
+                this.tpl = templateToClone;
+            }
+            this.commitTemplate();
+        }
+        commitTemplate() {
             if (options.noshadow) {
                 this.appendChild(this.tpl);
             }
@@ -98,7 +107,7 @@ export function def(templ, options) {
         }
         onPropChange(name, propDef, newVal) {
             this.reactor.addToQueue(propDef, newVal);
-            if (this.tpl === undefined)
+            if (this.tpl === undefined || this.tpl.update === undefined)
                 return;
             this.tpl.update(this);
         }

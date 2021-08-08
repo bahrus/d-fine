@@ -10,8 +10,7 @@ export interface defOptions<TProps = any> {
     objProps?: (keyof TProps & string)[],
     propActionsForDef?: PropAction[],
     styleTemplate?: HTMLTemplateElement,
-    //bindTo?: string | undefined;
-    //bt?: string | undefined;
+    noInlineBind?: boolean,
 }
 
 export interface DFineProps extends HTMLElement, defOptions{

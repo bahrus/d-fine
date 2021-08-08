@@ -1,8 +1,8 @@
 import { defOptions } from "./types";
 import {xc, PropAction, PropDef, PropDefMap, ReactiveSurface, IReactor} from 'xtal-element/lib/XtalCore.js';
 import {passAttrToProp} from 'xtal-element/lib/passAttrToProp.js';
-import {TemplateInstance} from 'templ-arts/lib/index.js';
 import {toTempl} from 'xodus/toTempl.js';
+//import { TemplateInstance } from "templ-arts/lib/index.js";
 
 export function def<TProps = any>(templ: HTMLTemplateElement | Element, options: defOptions<TProps>){
     const templateToClone = toTempl(templ, templ.localName === options.as && templ.shadowRoot !== null);
@@ -84,10 +84,20 @@ export function def<TProps = any>(templ: HTMLTemplateElement | Element, options:
 
 
 
-        connectedCallback(){
+        async connectedCallback(){
             if(this.tpl !== undefined) return;
             xc.mergeProps(this, slicedPropDefs, defaults);
-            this.tpl = new TemplateInstance(templateToClone!, this);
+            if(!options.noInlineBind){
+                const {TemplateInstance} = await import('templ-arts/lib/index.js');
+                this.tpl = new TemplateInstance(templateToClone!, this) as any as HTMLTemplateElementExt;
+            }else{
+                this.tpl = templateToClone as HTMLTemplateElementExt;
+            }
+            this.commitTemplate();
+
+        }
+
+        commitTemplate(){
             if(options.noshadow){
                 this.appendChild(this.tpl!);
             }else{
@@ -99,18 +109,23 @@ export function def<TProps = any>(templ: HTMLTemplateElement | Element, options:
                 shadowRoot.appendChild(this.tpl!);
             }
         }
+
         onPropChange(name: string, propDef: PropDef, newVal: any){
             this.reactor.addToQueue(propDef, newVal);
-            if(this.tpl === undefined) return;
+            if(this.tpl === undefined || this.tpl.update === undefined) return;
             this.tpl.update(this);
         }
 
         /**
         * @private
         */
-        tpl: TemplateInstance | undefined;
+        tpl: HTMLTemplateElementExt | undefined;
     }
     xc.letThereBeProps(newClass, slicedPropDefs, 'onPropChange');
     xc.define(newClass);
     return newClass;
+}
+
+export interface HTMLTemplateElementExt extends HTMLTemplateElement{
+    update(model: any): void;
 }
