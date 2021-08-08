@@ -14,7 +14,7 @@
     "templ-arts": "0.0.7",
     "trans-render": "0.0.291",
     "xtal-element": "0.0.418",
-    "xodus": "0.0.2"
+    "xodus": "0.0.3"
   },
   "devDependencies": {
     "xtal-test": "0.0.51",

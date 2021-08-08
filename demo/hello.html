@@ -8,9 +8,9 @@
 </head>
 <body>
     <div>
-        <div>Hello, <span data-bind=place>world</span></div>
+        <div>Hello, <span x-f=place>world</span></div>
     </div>
-    <d-fine fps as=hello-world sp='["place=Venus"]'></d-fine>
+    <d-fine prev-sib as=hello-world str-props='["place=Venus"]'></d-fine>
     <hello-world place=Mars></hello-world>
     <hello-world></hello-world>
     <script type=importmap>

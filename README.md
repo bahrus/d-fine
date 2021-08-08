@@ -14,7 +14,7 @@ The t-mplate for the custom element can come from live HTML.  For example:
 
 ```html
 <div>
-    <div>H-llo, <span data-bind=place>world</span></div>
+    <div>H-llo, <span x-f=place>world</span></div>
 </div>
 <d-fine prev-sib as=h-llo-world str-props='["place"]'></d-fine>
 <h-llo-world place=Mars></h-llo-world>
@@ -29,10 +29,12 @@ The t-mplate for the custom element can come from live HTML.  For example:
 <h-llo-world place=Mars>
     #shadow
     <div>
-        <div>H-llo, <span>Mars</span></div>
+        <div>H-llo, <span x-f=place>Mars</span></div>
     </div>
 </h-llo-world>
 ```
+
+x-f stands for "expand from".  You can also use data-xf [TODO] so as not to offend anyone.
 
 Shadow DOM can b- circumvented by adding attribute "noshadow."
 
@@ -42,7 +44,7 @@ The example b-low does the same thing, but with more compact notation.  D-fault 
 
 ```html
 <div>
-    <div>H-llo, <span data-bind=place>world</span></div>
+    <div>H-llo, <span x-f=place>world</span></div>
 </div>
 <d-fine prev-sib as=h-llo-world str-props='["place=V-nus"]'></d-fine>
 <h-llo-world place=Mars></h-llo-world>
@@ -109,7 +111,7 @@ This syntax also works:
 <h-llo-world place=Mars></h-llo-world>
 ```
 
-x-f stands for "expand from".
+
 
 The w-b component d-fine is a thin wrapper around the api d-fined in d-fine/def.js.
 
