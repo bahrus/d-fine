@@ -34,11 +34,9 @@ The t-mplate for the custom element can come from live HTML.  For example:
 </h-llo-world>
 ```
 
-x-f stands for "expand from".  You can also use data-xf [TODO] so as not to offend anyone.
+x-f stands for "expand from".  You can also use data-xf so as not to offend anyone.
 
-Shadow DOM can b- circumvented by adding attribute "noshadow."
-
-d-fine is part of the [p-et-alia](https://github.com/bahrus/p-et-alia) framework.  One of the goals of that framework is to allow the d-veloper to choose 
+Shadow DOM can b- circumvented by adding attribute "noshadow." 
 
 The example b-low does the same thing, but with more compact notation.  D-fault values can also b- specified, as s-en with place=V-nus:
 
