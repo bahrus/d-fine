@@ -33,7 +33,7 @@ export class DFineCore extends HTMLElement implements DFineActions{
         if(ceName === undefined || customElements.get(ceName)) return;
         if(as === '') this.as = ceName;
         return {
-            etc: upShadowSearch(this, from!),
+            etc: upShadowSearch(this, from!)!,
         }
     }
     
@@ -44,7 +44,7 @@ export class DFineCore extends HTMLElement implements DFineActions{
         if(customElements.get(ceName)) return;
         if(as === '') this.as = ceName;
         return{
-            etc: previousElementSibling,
+            etc: previousElementSibling!,
         }
     }
 
@@ -52,10 +52,11 @@ export class DFineCore extends HTMLElement implements DFineActions{
         DFineCore.getInnerTemplate(this, 0);
     }
 
-    doDef({propDefaults, as, etc}: this){
-        def(etc, [], {
+    doDef({propDefaults, as, etc, transform}: this){
+        def(etc, [], transform, {
             config:{
-                tagName: as
+                tagName: as,
+                propDefaults: propDefaults
             }
         });
     }
@@ -71,7 +72,7 @@ const ce = new CE<DFineProps & HTMLElement, DFineActions>({
             from: '',
             prevSib: false,
             propDefaults:{},
-
+            transform:{},
         },
         actions:{
             doFrom:{
@@ -86,5 +87,6 @@ const ce = new CE<DFineProps & HTMLElement, DFineActions>({
                 ifAllOf:['etc', 'as']
             }
         }
-    }
+    },
+    superclass: DFineCore
 });

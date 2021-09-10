@@ -5,6 +5,7 @@ import {toTempl} from 'xodus/toTempl.js';
 export function def<MCProps = any, MCActions = MCProps>(
     templ: Element,
     styles: CSSStyleSheet[],
+    transform: object,
     args: DefineArgs<MCProps, MCActions>)
     {
         const newArgs = {...args} as DefineArgs<any, any>;
@@ -13,7 +14,9 @@ export function def<MCProps = any, MCActions = MCProps>(
         const templateToClone = toTempl(templ, templ.localName === args.config.tagName && templ.shadowRoot !== null);
         newArgs.complexPropDefaults = {
             ...(args.complexPropDefaults || {}),
-            mainTemplate: templateToClone 
+            mainTemplate: templateToClone,
+            initTransform:{},
+            updateTransform: transform, 
         }
         newArgs.config.actions = {
             ...(args.config.actions || {}),

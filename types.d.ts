@@ -31,6 +31,8 @@ export interface DFineProps extends ETC{
     as: string,
 
     propDefaults: object,
+
+    transform: object,
 }
 
 interface ETC {
