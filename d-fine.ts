@@ -1,7 +1,7 @@
 import {CE} from 'trans-render/lib/CE.js';
-import {DFineProps, DFineActions} from 'types';
+import {DFineProps, DFineActions} from './types';
 import {upShadowSearch} from 'trans-render/lib/upShadowSearch.js';
-import {def} from './def2.js';
+import {def} from './def.js';
 
 /**
  * Define Web Component Declaratively
@@ -73,6 +73,7 @@ const ce = new CE<DFineProps & HTMLElement, DFineActions>({
             prevSib: false,
             propDefaults:{},
             transform:{},
+            templChild: false,
         },
         actions:{
             doFrom:{
@@ -82,6 +83,9 @@ const ce = new CE<DFineProps & HTMLElement, DFineActions>({
             doPrevSib:{
                 ifAllOf:['previousElementSibling', 'prevSib'],
                 ifKeyIn: ['as']
+            },
+            doTemplChild:{
+                ifAllOf:['templChild']
             },
             doDef:{
                 ifAllOf:['etc', 'as']

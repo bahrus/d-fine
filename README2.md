@@ -19,7 +19,7 @@ The t-mplate for the custom element can come from live HTML.  For example:
     as=h-llo-world 
     prop-defaults='{"place": "V-nus"}'
     transform='{
-        "spanElements": ["place"] 
+        "span": ["place"] 
     }'
 >
 </d-fine>
@@ -51,7 +51,7 @@ The previous sibling can b- a t-mplate to start with:
    as=h-llo-world 
    prop-defaults='{"place": "V-nus"}'
     transform='{
-        "divElements": ["H-llo", "place"] 
+        "div": ["H-llo", "place"] 
     }'
 >
 </d-fine>

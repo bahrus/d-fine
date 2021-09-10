@@ -1,6 +1,6 @@
 import { CE } from 'trans-render/lib/CE.js';
 import { upShadowSearch } from 'trans-render/lib/upShadowSearch.js';
-import { def } from './def2.js';
+import { def } from './def.js';
 /**
  * Define Web Component Declaratively
  * @element d-fine
@@ -70,6 +70,7 @@ const ce = new CE({
             prevSib: false,
             propDefaults: {},
             transform: {},
+            templChild: false,
         },
         actions: {
             doFrom: {
@@ -79,6 +80,9 @@ const ce = new CE({
             doPrevSib: {
                 ifAllOf: ['previousElementSibling', 'prevSib'],
                 ifKeyIn: ['as']
+            },
+            doTemplChild: {
+                ifAllOf: ['templChild']
             },
             doDef: {
                 ifAllOf: ['etc', 'as']
