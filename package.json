@@ -12,14 +12,14 @@
   ],
   "dependencies": {
     "templ-arts": "0.0.7",
-    "trans-render": "0.0.291",
-    "xtal-element": "0.0.420",
+    "trans-render": "0.0.390",
+    "xtal-element": "0.0.441",
     "xodus": "0.0.3"
   },
   "devDependencies": {
     "xtal-test": "0.0.51",
     "@skypack/package-check": "0.2.2",
-    "@custom-elements-manifest/analyzer": "0.4.17"
+    "@custom-elements-manifest/analyzer": "0.5.3"
   },
   "scripts": {
     "serve": "node node_modules/xtal-test/serve.js",

@@ -9,8 +9,8 @@
 		"watch": true
 	},
 	"files":[
-		"def.ts",
-		"d-fine.ts"
+		"def2.ts",
+		"d-fine2.ts"
 	],
 	"exclude":[
 		"node_modules"
