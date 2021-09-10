@@ -11,8 +11,16 @@
         <template shadowroot=open>
           <div>Hello, <span x-f=place>world</span></div>
         </template>
-      </hello-world>
-    <d-fine prev-sib str-props='["place=Venus"]'></d-fine>
+    </hello-world>
+    <d-fine 
+      prev-sib 
+      as=h-llo-world 
+      prop-defaults='{"place":"V-nus"}'
+      transform='{
+          "span": ["place"]
+      }'
+    >
+    </d-fine>
     <hello-world place=Mars></hello-world>
     
     <script type=module crossorigin>

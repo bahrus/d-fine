@@ -6,23 +6,17 @@ d-fine provides a quick way of d-fining a d-clarative custom element.
 
 <img src="https://badgen.net/bundlephobia/minzip/d-fine">
 
+## [Demo](https://codepen.io/bahrus/pen/poPVOJz)
+
 ## H-llo, {{place}}
 
 The t-mplate for the custom element can come from live HTML.  For example:
 
 ```html
 <div>
-    <div>H-llo, <span>world</span></div>
+    <div>H-llo, <span x-f=place>world</span></div>
 </div>
-<d-fine 
-    prev-sib 
-    as=h-llo-world 
-    prop-defaults='{"place": "V-nus"}'
-    transform='{
-        "span": ["place"] 
-    }'
->
-</d-fine>
+<d-fine prev-sib as=h-llo-world str-props='["place"]'></d-fine>
 <h-llo-world place=Mars></h-llo-world>
 ```
 
@@ -35,7 +29,43 @@ The t-mplate for the custom element can come from live HTML.  For example:
 <h-llo-world place=Mars>
     #shadow
     <div>
+        <div>H-llo, <span x-f=place>Mars</span></div>
+    </div>
+</h-llo-world>
+```
+
+x-f stands for "expand from".  You can also use data-xf so as not to offend anyone.
+
+Shadow DOM can b- circumvented by adding attribute "noshadow." 
+
+The example b-low does the same thing, but with more compact notation.  D-fault values can also b- specified, as s-en with place=V-nus:
+
+```html
+<div>
+    <div>H-llo, <span x-f=place>world</span></div>
+</div>
+<d-fine prev-sib as=h-llo-world str-props='["place=V-nus"]'></d-fine>
+<h-llo-world place=Mars></h-llo-world>
+<h-llo-world></h-llo-world>
+```
+
+
+...g-nerates:
+
+```html
+<div>
+    <div>H-llo, <span>world</span></div>
+</div>
+<h-llo-world place=Mars>
+    #shadow
+    <div>
         <div>H-llo, <span>Mars</span></div>
+    </div>
+</h-llo-world>
+<h-llo-world place=Venus>
+    #shadow
+    <div>
+        <div>H-llo, <span>V-nus</span></div>
     </div>
 </h-llo-world>
 ```
@@ -44,17 +74,9 @@ The previous sibling can b- a t-mplate to start with:
 
 ```html
 <template>
-    <div></div>
+    <div>H-llo, {{place}}</div>
 </template>
-<d-fine 
-   prev-sib 
-   as=h-llo-world 
-   prop-defaults='{"place": "V-nus"}'
-    transform='{
-        "div": ["H-llo", "place"] 
-    }'
->
-</d-fine>
+<d-fine prev-sib as=h-llo-world str-props='["place=Venus"]'></d-fine>
 <h-llo-world place=Mars></h-llo-world>
 <h-llo-world></h-llo-world>
 ```
@@ -62,45 +84,35 @@ The previous sibling can b- a t-mplate to start with:
 If working with a t-mplate like in the example above, it might b- easier on the eye to use an inner t-mplate.  W- can specify to find the t-mplate from within the d-fine tag via the attribute "templ-child":
 
 ```html
-
-<d-fine 
-   prev-sib 
-   as=h-llo-world 
-   prop-defaults='{"place": "V-nus"}'
-    transform='{
-        "divElements": ["H-llo", "place"] 
-    }'
->
-<template>
-    <div></div>
-</template>
+<d-fine templ-child as=h-llo-world str-props='["place=Venus"]'>
+    <template>
+        <div>H-llo, {{place}}</div>
+    </template>
 </d-fine>
 <h-llo-world place=Mars></h-llo-world>
 <h-llo-world></h-llo-world>
 ```
+
+As we can see above, when using templates (or live DOM for that matter), basic moustache-style templating is supported, where the expressions inside the moustache are names of properties defined for the component.  The library used for this binding is package ["templ-arts"](https://www.npmjs.com/package/templ-arts), a fork of github's template-parts, that adds slightly richer functionality. 
 
 ## Prerendered w-b components that use d-clarative Shadow DOM
 
 This syntax also works:
 
 ```html
-<hello-world>
+<h-llo-world>
     <template shadowroot=open>
-        <div>Hello, <span>world</span></div>
+        <div>H-llo, <span x-f=place>world</span></div>
     </template>
-</hello-world>
-<d-fine 
-    prev-sib
-    prop-defaults='{"place":"V-nus"}'
-    transform='{
-        "span": ["place"]
-    }'
-></d-fine>
-<hello-world place=Mars></hello-world>
+</h-llo-world>
+<d-fine prev-sib str-props='["place=V-nus"]'></d-fine>
+<h-llo-world place=Mars></h-llo-world>
 ```
 
 
+
 The w-b component d-fine is a thin wrapper around the api d-fined in d-fine/def.js.
+
 
 ## T-mplate D-pendency Injection, or Inversion of Views
 
@@ -145,7 +157,6 @@ To run locally (instructions may vary d-pending on OS):
 6.  Issue command "npm install"
 7.  When step 6 is completed, issue command "npm run serve".
 8.  Open your browser to http://localhost:3030/demo
-
 
 
 
