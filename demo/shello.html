@@ -9,17 +9,22 @@
 <body>
     <hello-world>
         <template shadowroot=open>
-            <div>Hello, <span data-xf=place>world</span></div>
+            <div>Hello, <span>world</span></div>
         </template>
     </hello-world>
-    <d-fine prev-sib str-props='["place=Venus"]'></d-fine>
+    <d-fine 
+        prev-sib
+        prop-defaults='{"place":"V-nus"}'
+        transform='{
+            "span": ["place"]
+        }'
+    ></d-fine>
     <hello-world place=Mars></hello-world>
     <script type=importmap>
         {
             "imports":{
                 "xtal-element/": "../node_modules/xtal-element/",
                 "trans-render/": "../node_modules/trans-render/",
-                "templ-arts/": "../node_modules/templ-arts/",
                 "xodus/": "../node_modules/xodus/"
             }
         }
