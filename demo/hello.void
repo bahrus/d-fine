@@ -8,19 +8,11 @@
 </head>
 <body>
     <div>
-        <div>H-llo, <span>world</span></div>
+        <div>Hello, <span x-f=place>world</span></div>
     </div>
-    <d-fine 
-        prev-sib 
-        as=h-llo-world 
-        prop-defaults='{"place":"V-nus"}',
-        transform='{
-            "span": ["place"]
-        }'
-    >
-    </d-fine>
-    <h-llo-world place=Mars></h-llo-world>
-    <h-llo-world></h-llo-world>
+    <d-fine prev-sib as=hello-world str-props='["place=Venus"]'></d-fine>
+    <hello-world place=Mars></hello-world>
+    <hello-world></hello-world>
     <script type=importmap>
         {
             "imports":{
@@ -32,7 +24,7 @@
         }
     </script>
     <script type=module>
-        import '../d-fine2.js';
+        import '../d-fine.js';
     </script>
 </body>
 </html>

@@ -1,119 +1,89 @@
-import { xc } from 'xtal-element/lib/XtalCore.js';
+import { CE } from 'trans-render/lib/CE.js';
 import { upShadowSearch } from 'trans-render/lib/upShadowSearch.js';
-import { def } from './def.js';
+import { def } from './def2.js';
 /**
  * Define Web Component Declaratively
  * @element d-fine
  * @tag d-fine
  */
-export class DFine extends HTMLElement {
-    static is = 'd-fine';
-    self = this;
-    propActions = propActions;
-    reactor = new xc.Rx(this);
-    connectedCallback() {
-        xc.mergeProps(this, slicedPropDefs);
+export class DFineCore extends HTMLElement {
+    static getCEName(templateId) {
+        if (templateId.indexOf('-') > -1)
+            return templateId;
+        return 'd-fine-' + templateId;
     }
-    onPropChange(n, prop, nv) {
-        this.reactor.addToQueue(prop, nv);
+    static getInnerTemplate(self, retries) {
+        if (customElements.get(self.as))
+            return;
+        const templ = self.querySelector('template');
+        if (templ === null) {
+            if (retries > 2)
+                throw "Inner template not found";
+            setTimeout(() => {
+                DFineCore.getInnerTemplate(self, retries + 1);
+            }, 50);
+            return;
+        }
+        self.etc = templ;
+    }
+    doFrom({ from, as }) {
+        const ceName = as || DFineCore.getCEName(from.split('/').pop());
+        if (ceName === undefined || customElements.get(ceName))
+            return;
+        if (as === '')
+            this.as = ceName;
+        return {
+            etc: upShadowSearch(this, from),
+        };
+    }
+    doPrevSib({ as, previousElementSibling }) {
+        const ln = previousElementSibling.localName;
+        const ceName = as || ln;
+        if (ceName === undefined)
+            return;
+        if (customElements.get(ceName))
+            return;
+        if (as === '')
+            this.as = ceName;
+        return {
+            etc: previousElementSibling,
+        };
+    }
+    doTemplChild({}) {
+        DFineCore.getInnerTemplate(this, 0);
+    }
+    doDef({ propDefaults, as, etc, transform }) {
+        def(etc, [], transform, {
+            config: {
+                tagName: as,
+                propDefaults: propDefaults
+            }
+        });
     }
 }
-export const onFrom = ({ from, as, self }) => {
-    const ceName = self.as || getCEName(from.split('/').pop());
-    if (ceName === undefined || customElements.get(ceName))
-        return;
-    if (self.as === undefined)
-        self.as = ceName;
-    self.etc = upShadowSearch(self, from);
-};
-export const onPrevSib = ({ prevSib, as, self }) => {
-    const prevElSibling = self.previousElementSibling;
-    if (prevElSibling === null)
-        return;
-    const ln = prevElSibling.localName;
-    const ceName = ln.includes('-') ? ln : as;
-    if (ceName === undefined)
-        return;
-    if (customElements.get(ceName))
-        return;
-    if (self.as === undefined)
-        self.as = ceName;
-    self.etc = prevElSibling;
-};
-export const onTemplChild = ({ templChild, as, self }) => {
-    getInnerTemplate(self, 0);
-};
-function getInnerTemplate(self, retries) {
-    if (customElements.get(self.as))
-        return;
-    const templ = self.querySelector('template');
-    if (templ === null) {
-        if (retries > 2)
-            throw "Inner template not found";
-        setTimeout(() => {
-            getInnerTemplate(self, retries + 1);
-        }, 50);
-        return;
-    }
-    self.etc = templ;
-}
-export const doDef = ({ etc, self }) => {
-    def(etc, self);
-};
-export const propActions = [onFrom, onPrevSib, onTemplChild, doDef];
-export const baseProp = {
-    dry: true,
-    async: true,
-};
-export const boolProp0 = {
-    ...baseProp,
-    type: Boolean,
-};
-export const boolProp1 = {
-    ...boolProp0,
-    stopReactionsIfFalsy: true,
-};
-export const strProp0 = {
-    ...baseProp,
-    type: String,
-};
-export const strProp1 = {
-    ...strProp0,
-    stopReactionsIfFalsy: true,
-};
-export const objProp0 = {
-    ...baseProp,
-    type: Object,
-};
-export const objProp1 = {
-    ...objProp0,
-    stopReactionsIfFalsy: true,
-};
-export const objProp2 = {
-    ...objProp0,
-    parse: true
-};
-const propDefMap = {
-    from: strProp1,
-    as: strProp0,
-    prevSib: boolProp1,
-    templChild: boolProp1,
-    etc: { ...objProp1, transience: 1000 },
-    strProps: { ...objProp2, echoTo: 'sp' },
-    numProps: { ...objProp2, echoTo: 'np' },
-    objProps: { ...objProp2, echoTo: 'op' },
-    boolProps: { ...objProp2, echoTo: 'bp' },
-    propActionsForDef: objProp0,
-    noshadow: boolProp0,
-    styleTemplate: objProp0,
-    //bt: strProp0,
-    //bindTo: {...strProp0,'echoTo': 'bt'}
-};
-const slicedPropDefs = xc.getSlicedPropDefs(propDefMap);
-xc.letThereBeProps(DFine, slicedPropDefs, 'onPropChange');
-xc.define(DFine);
-function getCEName(templateId) {
-    if (templateId.indexOf('-') > -1)
-        return templateId;
-    return 'd-fine-' + templateId;
-}
+const ce = new CE({
+    config: {
+        tagName: 'd-fine',
+        propDefaults: {
+            as: '',
+            from: '',
+            prevSib: false,
+            propDefaults: {},
+            transform: {},
+        },
+        actions: {
+            doFrom: {
+                ifAllOf: ['from'],
+                ifKeyIn: ['as']
+            },
+            doPrevSib: {
+                ifAllOf: ['previousElementSibling', 'prevSib'],
+                ifKeyIn: ['as']
+            },
+            doDef: {
+                ifAllOf: ['etc', 'as']
+            }
+        }
+    },
+    superclass: DFineCore
+});
