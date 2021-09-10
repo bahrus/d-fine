@@ -12,8 +12,7 @@
   ],
   "dependencies": {
     "templ-arts": "0.0.7",
-    "trans-render": "0.0.390",
-    "xtal-element": "0.0.441",
+    "trans-render": "0.0.392",
     "xodus": "0.0.3"
   },
   "devDependencies": {

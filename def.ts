@@ -27,4 +27,4 @@ export function def<MCProps = any, MCActions = MCProps>(
         };
         const ce = new CE<MCProps & TemplMgmtProps, MCActions & TemplMgmtActions>(newArgs);
     
-}
+    }
