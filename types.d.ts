@@ -33,6 +33,8 @@ export interface DFineProps extends ETC{
     propDefaults: object,
 
     transform: object,
+
+    noshadow: boolean,
 }
 
 interface ETC {

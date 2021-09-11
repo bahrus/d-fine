@@ -52,8 +52,8 @@ export class DFineCore extends HTMLElement implements DFineActions{
         DFineCore.getInnerTemplate(this, 0);
     }
 
-    doDef({propDefaults, as, etc, transform}: this){
-        def(etc, [], transform, {
+    doDef({propDefaults, as, etc, transform, noshadow}: this){
+        def(etc, [], transform, noshadow, {
             config:{
                 tagName: as,
                 propDefaults: propDefaults
@@ -74,6 +74,7 @@ const ce = new CE<DFineProps & HTMLElement, DFineActions>({
             propDefaults:{},
             transform:{},
             templChild: false,
+            noshadow: false,
         },
         actions:{
             doFrom:{

@@ -52,8 +52,8 @@ export class DFineCore extends HTMLElement {
     doTemplChild({}) {
         DFineCore.getInnerTemplate(this, 0);
     }
-    doDef({ propDefaults, as, etc, transform }) {
-        def(etc, [], transform, {
+    doDef({ propDefaults, as, etc, transform, noshadow }) {
+        def(etc, [], transform, noshadow, {
             config: {
                 tagName: as,
                 propDefaults: propDefaults
@@ -71,6 +71,7 @@ const ce = new CE({
             propDefaults: {},
             transform: {},
             templChild: false,
+            noshadow: false,
         },
         actions: {
             doFrom: {

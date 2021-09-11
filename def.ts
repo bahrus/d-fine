@@ -6,6 +6,7 @@ export function def<MCProps = any, MCActions = MCProps>(
     templ: Element,
     styles: CSSStyleSheet[],
     transform: object,
+    noshadow: boolean,
     args: DefineArgs<MCProps, MCActions>)
     {
         const newArgs = {...args} as DefineArgs<any, any>;
@@ -16,7 +17,8 @@ export function def<MCProps = any, MCActions = MCProps>(
             ...(args.complexPropDefaults || {}),
             mainTemplate: templateToClone,
             initTransform:{},
-            updateTransform: transform, 
+            updateTransform: transform,
+            noshadow,
         }
         newArgs.config.actions = {
             ...(args.config.actions || {}),
