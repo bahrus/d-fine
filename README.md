@@ -21,7 +21,7 @@ The t-mplate for the custom element can come from live HTML.  For example:
     as=h-llo-world 
     prop-defaults='{"place": "V-nus"}'
     transform='{
-        "span": ["place"] 
+        "span": "place" 
     }'
 >
 </d-fine>
@@ -42,7 +42,7 @@ The t-mplate for the custom element can come from live HTML.  For example:
 </h-llo-world>
 ```
 
-The previous sibling can b- a t-mplate to start with:
+The previous sibling can b- a t-mplate to start with, and we can also apply interpolation-from-a-distance:
 
 ```html
 <template>
@@ -64,21 +64,22 @@ The previous sibling can b- a t-mplate to start with:
 If working with a t-mplate like in the example above, it might b- easier on the eye to use an inner t-mplate.  W- can specify to find the t-mplate from within the d-fine tag via the attribute "templ-child":
 
 ```html
-
 <d-fine 
-   prev-sib 
-   as=h-llo-world 
-   prop-defaults='{"place": "V-nus"}'
-    transform='{
-        "divElements": ["H-llo", "place"] 
-    }'
+    templ-child 
+    as=hello-world 
+    prop-defaults='{"place":"V-nus"}'
+    transform='
+        {
+            "span": "place"
+        }
+    '
 >
-<template>
-    <div></div>
-</template>
+    <template>
+        <div>Hello, <span>world</span></div>
+    </template>
 </d-fine>
-<h-llo-world place=Mars></h-llo-world>
-<h-llo-world></h-llo-world>
+<hello-world place=Mars></hello-world>
+<hello-world></hello-world>
 ```
 
 ## Prerendered w-b components that use d-clarative Shadow DOM
@@ -95,7 +96,7 @@ This syntax also works:
     prev-sib
     prop-defaults='{"place":"V-nus"}'
     transform='{
-        "span": ["place"]
+        "span": "place"
     }'
 ></d-fine>
 <hello-world place=Mars></hello-world>
