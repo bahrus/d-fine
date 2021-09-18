@@ -46,7 +46,7 @@ The previous sibling can b- a t-mplate to start with, and we can also apply inte
 
 ```html
 <template>
-    <div></div>
+    <div>Sapere aude</div>
 </template>
 <d-fine 
    prev-sib 
