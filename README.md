@@ -66,7 +66,7 @@ If working with a t-mplate like in the example above, it might b- easier on the 
 ```html
 <d-fine 
     templ-child 
-    as=hello-world 
+    as=h-llo-world 
     prop-defaults='{"place":"V-nus"}'
     transform='
         {
@@ -78,8 +78,8 @@ If working with a t-mplate like in the example above, it might b- easier on the 
         <div>Hello, <span>world</span></div>
     </template>
 </d-fine>
-<hello-world place=Mars></hello-world>
-<hello-world></hello-world>
+<h-llo-world place=Mars></h-llo-world>
+<h-llo-world></h-llo-world>
 ```
 
 ## Prerendered w-b components that use d-clarative Shadow DOM
@@ -87,11 +87,11 @@ If working with a t-mplate like in the example above, it might b- easier on the 
 This syntax also works:
 
 ```html
-<hello-world>
+<h-llo-world>
     <template shadowroot=open>
         <div>Hello, <span>world</span></div>
     </template>
-</hello-world>
+</h-llo-world>
 <d-fine 
     prev-sib
     prop-defaults='{"place":"V-nus"}'
@@ -99,7 +99,7 @@ This syntax also works:
         "span": "place"
     }'
 ></d-fine>
-<hello-world place=Mars></hello-world>
+<h-llo-world place=Mars></h-llo-world>
 ```
 
 
