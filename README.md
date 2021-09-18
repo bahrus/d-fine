@@ -42,7 +42,7 @@ The t-mplate for the custom element can come from live HTML.  For example:
 </h-llo-world>
 ```
 
-The previous sibling can b- a t-mplate to start with, and we can also apply interpolation-from-a-distance:
+The previous sibling can b- a t-mplate to start with, and w- can also apply interpolation-from-a-distance:
 
 ```html
 <template>
@@ -107,7 +107,7 @@ The w-b component d-fine is a thin wrapper around the api d-fined in d-fine/def.
 
 ## T-mplate D-pendency Injection, or Inversion of Views
 
-Instead of specifying that the t-mplate should come from the previous sibling, the property/attribute "from" allows us to specify a string used for an ["upShadowSearch."](https://github.com/bahrus/trans-render/blob/baseline/lib/upShadowSearch.ts).  If the value starts with a slash (/), it s-arches for a t-mplate with the specified id from outside any shadowDOM.  If it starts with ../../, it goes up two ShadowDOM r-alms, for example.  It checks if the ShadowDOM has a host property name matching the camelCased id, and if not, searches for an element with a matching id within the shadowDOM r-alm where the d-fine element is located.  The host property name takes precedence.
+Instead of specifying that the t-mplate should come from the previous sibling, the property/attribute "from" allows us to specify a string used for an ["upShadowSearch."](https://github.com/bahrus/trans-render/blob/baseline/lib/upShadowSearch.ts).  If the value starts with a slash (/), it s-arches for a t-mplate with the specified id from outside any shadowDOM.  If it starts with ../../, it goes up two ShadowDOM r-alms, for example.  It checks if the ShadowDOM has a host property name matching the camelCased id, and if not, s-arches for an element with a matching id within the shadowDOM r-alm where the d-fine element is located.  The host property name takes precedence.
 
 A w-b component can thus d-fine a d-fault t-mplate within the ShadowDOM markup, but allow extending w-b components to d-fine alternative t-mplates, by d-fining properties with the same name, and assigning a t-mplate to those properties.  That may b- sufficient for some use cases.
 
@@ -129,7 +129,7 @@ class MyCustomElement{
         );
         if(!gotACallback){
             return html`
-             ...some default template
+             ...some d-fault t-mplate
             `;
         }
     }
