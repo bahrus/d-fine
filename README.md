@@ -6,7 +6,7 @@ d-fine provides a quick way of d-fining a d-clarative custom element.
 
 <img src="https://badgen.net/bundlephobia/minzip/d-fine">
 
-## [Demo](https://codepen.io/bahrus/pen/poPVOJz)
+## [D-mo](https://codepen.io/bahrus/pen/poPVOJz)
 
 ## H-llo, {{place}}
 
