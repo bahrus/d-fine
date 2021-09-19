@@ -21,4 +21,5 @@ export function def(templ, styles, transform, noshadow, args) {
         }
     };
     const ce = new CE(newArgs);
+    return ce.classDef;
 }
