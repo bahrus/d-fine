@@ -53,13 +53,15 @@ The previous sibling can b- a t-mplate to start with, and w- can also apply inte
    as=h-llo-world 
    prop-defaults='{"place": "V-nus"}'
     transform='{
-        "div": ["H-llo", "place"] 
+        "div": ["H-llo", "place"]
     }'
 >
 </d-fine>
 <h-llo-world place=Mars></h-llo-world>
 <h-llo-world></h-llo-world>
 ```
+
+Note the heavy use of attributes that expect JSON.  If you are like me, it is easy make mistakes editing by hand, without proper syntax highlighting.  A [VSCode extension](https://marketplace.visualstudio.com/items?itemName=andersonbruceb.json-in-html) has been created to help with this.
 
 If working with a t-mplate like in the example above, it might b- easier on the eye to use an inner t-mplate.  W- can specify to find the t-mplate from within the d-fine tag via the attribute "templ-child":
 
@@ -101,7 +103,6 @@ This syntax also works:
 ></d-fine>
 <h-llo-world place=Mars></h-llo-world>
 ```
-
 
 The w-b component d-fine is a thin wrapper around the api d-fined in d-fine/def.js.
 
