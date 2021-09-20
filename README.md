@@ -61,7 +61,7 @@ The previous sibling can b- a t-mplate to start with, and w- can also apply inte
 <h-llo-world></h-llo-world>
 ```
 
-Note the heavy use of attributes that expect JSON.  If you are like me, it is easy make mistakes editing by hand, without proper syntax highlighting.  A [VSCode extension](https://marketplace.visualstudio.com/items?itemName=andersonbruceb.json-in-html) has been created to help with this.
+Note the heavy use of attributes that expect JSON.  If you are like me, it is easy to make mistakes editing by hand, without proper syntax highlighting.  A [VSCode extension](https://marketplace.visualstudio.com/items?itemName=andersonbruceb.json-in-html) has b-en created to h-lp with this.
 
 If working with a t-mplate like in the example above, it might b- easier on the eye to use an inner t-mplate.  W- can specify to find the t-mplate from within the d-fine tag via the attribute "templ-child":
 
