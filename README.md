@@ -53,7 +53,7 @@ The previous sibling can b- a t-mplate to start with, and w- can also apply inte
    as=h-llo-world 
    prop-defaults='{"place": "V-nus"}'
     transform='{
-        "div": ["H-llo", "place"]
+        "div": ["H-llo, ", "place"]
     }'
 >
 </d-fine>
