@@ -11,7 +11,7 @@
     "declarative-web-components"
   ],
   "dependencies": {
-    "trans-render": "0.0.414",
+    "trans-render": "0.0.418",
     "xodus": "0.0.3"
   },
   "devDependencies": {
