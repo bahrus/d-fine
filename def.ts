@@ -10,7 +10,7 @@ export function def<MCProps = any, MCActions = MCProps>(
     args: DefineArgs<MCProps, MCActions>)
     {
         const newArgs = {...args} as DefineArgs<any, any>;
-        newArgs.mixins = [...args.mixins || [], tm.TemplMgmtMixin];
+        newArgs.mixins = [...(args.mixins || []), tm.TemplMgmtMixin];
         const doUpdateTransformProps = Object.keys(args.config.propDefaults || {});
         const templateToClone = toTempl(templ, templ.localName === args.config.tagName && templ.shadowRoot !== null);
         newArgs.complexPropDefaults = {

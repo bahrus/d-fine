@@ -11,13 +11,13 @@
     "declarative-web-components"
   ],
   "dependencies": {
-    "trans-render": "0.0.418",
+    "trans-render": "0.0.419",
     "xodus": "0.0.3"
   },
   "devDependencies": {
     "xtal-test": "0.0.51",
     "@skypack/package-check": "0.2.2",
-    "@custom-elements-manifest/analyzer": "0.5.3"
+    "@custom-elements-manifest/analyzer": "0.5.5"
   },
   "scripts": {
     "serve": "node node_modules/xtal-test/serve.js",

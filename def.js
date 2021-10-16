@@ -3,7 +3,7 @@ import { tm } from 'trans-render/lib/mixins/TemplMgmtWithPEST.js';
 import { toTempl } from 'xodus/toTempl.js';
 export function def(templ, styles, transform, noshadow, args) {
     const newArgs = { ...args };
-    newArgs.mixins = [...args.mixins || [], tm.TemplMgmtMixin];
+    newArgs.mixins = [...(args.mixins || []), tm.TemplMgmtMixin];
     const doUpdateTransformProps = Object.keys(args.config.propDefaults || {});
     const templateToClone = toTempl(templ, templ.localName === args.config.tagName && templ.shadowRoot !== null);
     newArgs.complexPropDefaults = {
